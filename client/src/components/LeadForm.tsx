@@ -690,11 +690,6 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
             </Button>
           )}
         </div>
-        {step === STEPS.length && (
-          <p className="text-[10px] text-brand-grey text-center leading-normal">
-            Mit Absenden des Formulars stimmen Sie der Verarbeitung Ihrer Daten zur Angebotserstellung gemäß unserer Datenschutzerklärung zu. Keine Werbe-Spam-Garantie.
-          </p>
-        )}
       </form>
     </div>
   );
