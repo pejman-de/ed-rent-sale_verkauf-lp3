@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useLeadFormModal } from "@/contexts/LeadFormModalContext";
 import LeadForm from "@/components/LeadForm";
@@ -9,8 +10,6 @@ export function LeadFormModal() {
 
   useEffect(() => {
     if (isOpen) {
-      // Bei jedem Oeffnen hochzaehlen, um sauberes Remounting zu erzwingen
-      // (verhindert alte Validierungsfehler-Reste im Formular).
       setRenderKey((k) => k + 1);
     }
   }, [isOpen]);
@@ -18,11 +17,24 @@ export function LeadFormModal() {
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && closeLeadForm()}>
       <DialogContent
-        className="p-0 border-none bg-transparent shadow-none max-w-full sm:max-w-3xl h-[100dvh] max-h-[100dvh] sm:h-auto sm:max-h-[90vh] overflow-y-auto"
+        className="p-0 border-none bg-transparent shadow-none gap-0 rounded-none block
+          top-0 left-0 translate-x-0 translate-y-0 h-[100dvh] max-h-[100dvh] w-full max-w-full overflow-hidden
+          sm:top-[50%] sm:left-[50%] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:h-auto sm:max-h-[90vh] sm:w-full sm:max-w-3xl sm:rounded-2xl"
         showCloseButton={false}
       >
         <DialogTitle className="sr-only">Fahrzeug-Anfrage</DialogTitle>
-        <LeadForm key={renderKey} prefilledVehicle={selectedCategory} />
+
+        <button
+          onClick={closeLeadForm}
+          aria-label="Schließen"
+          className="fixed sm:absolute top-4 right-4 sm:-top-4 sm:-right-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-navy shadow-lg border border-brand-grey/15 hover:bg-brand-light transition-colors"
+        >
+          <X className="h-5 w-5" />
+        </button>
+
+        <div className="max-h-[100dvh] sm:max-h-[90vh] w-full overflow-y-auto overscroll-contain">
+          <LeadForm key={renderKey} prefilledVehicle={selectedCategory} />
+        </div>
       </DialogContent>
     </Dialog>
   );

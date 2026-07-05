@@ -33,7 +33,7 @@ const baseFormSchema = z.object({
   vorname: z.string().min(2, "Bitte geben Sie Ihren Vornamen ein."),
   nachname: z.string().min(2, "Bitte geben Sie Ihren Nachnamen ein."),
   email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein."),
-  telefon: z.string().min(6, "Bitte geben Sie eine gültige Telefonnummer ein."),
+  telefon: z.string().optional(),
   finanzierung: z.enum(["Ja", "Nein"]),
   aufbau: z.enum(["Ja", "Nein"]),
   datenschutz_akzeptiert: z.literal(true, {
@@ -399,7 +399,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
         <>
         {/* 1. Anfrage-Typ */}
         <div className="space-y-3">
-          <Label className="font-bold text-sm text-brand-navy">Anfrage-Typ</Label>
+          <Label className="font-bold text-sm text-brand-navy">Anfrage-Typ *</Label>
           <RadioGroup
             value={watchLeadPath}
             onValueChange={(val) => setValue("lead_path", val as "einzel" | "paket")}
@@ -431,7 +431,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <Label htmlFor="fahrzeugtyp" className="font-bold text-xs text-brand-navy uppercase tracking-wider">
-              Fahrzeugtyp / Wunschmodell
+              Fahrzeugtyp / Wunschmodell *
             </Label>
             <Select value={watchFahrzeugtyp} onValueChange={(val) => setValue("fahrzeugtyp", val)}>
               <SelectTrigger className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy">
@@ -451,7 +451,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label className="font-bold text-xs text-brand-navy uppercase tracking-wider">Zustand</Label>
+            <Label className="font-bold text-xs text-brand-navy uppercase tracking-wider">Zustand *</Label>
             <Select defaultValue="Neu" onValueChange={(val) => setValue("condition", val as "Neu" | "Gebraucht")}>
               <SelectTrigger className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy">
                 <SelectValue placeholder="Zustand wählen" />
@@ -464,7 +464,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label className="font-bold text-xs text-brand-navy uppercase tracking-wider">Logistikoption</Label>
+            <Label className="font-bold text-xs text-brand-navy uppercase tracking-wider">Logistikoption *</Label>
             <Select defaultValue="Abholung" onValueChange={(val) => setValue("abholung_lieferung", val as "Abholung" | "Lieferung")}>
               <SelectTrigger className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy">
                 <SelectValue placeholder="Logistik wählen" />
@@ -485,7 +485,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <Label htmlFor="wunschtermin" className="font-bold text-xs text-brand-navy uppercase tracking-wider">
-              Wunschtermin / Liefertermin
+              Wunschtermin / Liefertermin *
             </Label>
             <Input
               type="date"
@@ -498,7 +498,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
 
           <div className="space-y-2">
             <Label htmlFor="einsatzregion" className="font-bold text-xs text-brand-navy uppercase tracking-wider">
-              Einsatzregion / PLZ
+              Einsatzregion / PLZ *
             </Label>
             <Input
               type="text"
@@ -512,7 +512,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
 
           <div className="space-y-2">
             <Label htmlFor="stueckzahl" className="font-bold text-xs text-brand-navy uppercase tracking-wider">
-              Stückzahl
+              Stückzahl *
             </Label>
             <Input
               type="number"
@@ -528,7 +528,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
         {/* 3. Radio-Fragen */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-brand-grey/10">
           <div className="space-y-3">
-            <Label className="font-bold text-sm text-brand-navy">Finanzierung / Leasing gewünscht?</Label>
+            <Label className="font-bold text-sm text-brand-navy">Finanzierung / Leasing gewünscht? *</Label>
             <RadioGroup defaultValue="Nein" onValueChange={(val) => setValue("finanzierung", val as "Ja" | "Nein")} className="flex gap-6">
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="Ja" id="fin-ja" className="text-brand-navy border-brand-navy" />
@@ -542,7 +542,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
           </div>
 
           <div className="space-y-3">
-            <Label className="font-bold text-sm text-brand-navy">Sonderaufbau benötigt?</Label>
+            <Label className="font-bold text-sm text-brand-navy">Sonderaufbau benötigt? *</Label>
             <RadioGroup defaultValue="Nein" onValueChange={(val) => setValue("aufbau", val as "Ja" | "Nein")} className="flex gap-6">
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="Ja" id="auf-ja" className="text-brand-navy border-brand-navy" />
@@ -563,31 +563,31 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
         {/* 4. Kontaktdaten */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <Label htmlFor="vorname" className="font-bold text-xs text-brand-navy uppercase tracking-wider">Vorname</Label>
+            <Label htmlFor="vorname" className="font-bold text-xs text-brand-navy uppercase tracking-wider">Vorname *</Label>
             <Input type="text" id="vorname" placeholder="Max" className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy" {...register("vorname")} />
             {errors.vorname && <p className="text-xs font-semibold text-destructive">{errors.vorname.message}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="nachname" className="font-bold text-xs text-brand-navy uppercase tracking-wider">Nachname</Label>
+            <Label htmlFor="nachname" className="font-bold text-xs text-brand-navy uppercase tracking-wider">Nachname *</Label>
             <Input type="text" id="nachname" placeholder="Mustermann" className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy" {...register("nachname")} />
             {errors.nachname && <p className="text-xs font-semibold text-destructive">{errors.nachname.message}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="unternehmen" className="font-bold text-xs text-brand-navy uppercase tracking-wider">Firma</Label>
+            <Label htmlFor="unternehmen" className="font-bold text-xs text-brand-navy uppercase tracking-wider">Firma *</Label>
             <Input type="text" id="unternehmen" placeholder="Firmenname GmbH" className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy" {...register("unternehmen")} />
             {errors.unternehmen && <p className="text-xs font-semibold text-destructive">{errors.unternehmen.message}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="telefon" className="font-bold text-xs text-brand-navy uppercase tracking-wider">Telefonnummer</Label>
+            <Label htmlFor="telefon" className="font-bold text-xs text-brand-navy uppercase tracking-wider">Telefonnummer (optional)</Label>
             <Input type="tel" id="telefon" placeholder="+49 (0) 123 456789" className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy" {...register("telefon")} />
             {errors.telefon && <p className="text-xs font-semibold text-destructive">{errors.telefon.message}</p>}
           </div>
 
           <div className="space-y-2 md:col-span-2">
-            <Label htmlFor="email" className="font-bold text-xs text-brand-navy uppercase tracking-wider">E-Mail-Adresse</Label>
+            <Label htmlFor="email" className="font-bold text-xs text-brand-navy uppercase tracking-wider">E-Mail-Adresse *</Label>
             <Input type="email" id="email" placeholder="max@firma.de" className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy" {...register("email")} />
             {errors.email && <p className="text-xs font-semibold text-destructive">{errors.email.message}</p>}
           </div>
