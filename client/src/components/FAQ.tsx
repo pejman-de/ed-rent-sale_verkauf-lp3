@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { trackFaqToggle } from "@/lib/analytics";
 
 const faqs = [
   {
@@ -38,7 +39,17 @@ export default function FAQ() {
         </div>
 
         {/* Accordion Component */}
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full space-y-4"
+          onValueChange={(value) => {
+            if (value) {
+              const idx = parseInt(value.replace("item-", ""), 10);
+              trackFaqToggle(faqs[idx]?.question ?? value, true);
+            }
+          }}
+        >
           {faqs.map((faq, idx) => (
             <AccordionItem
               key={idx}

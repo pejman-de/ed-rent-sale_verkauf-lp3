@@ -15,7 +15,7 @@ export function LeadFormModal() {
   }, [isOpen]);
 
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => !open && closeLeadForm()}>
+    <Dialog open={isOpen} onOpenChange={(open) => !open && closeLeadForm("overlay_click")}>
       <DialogContent
         className="p-0 border-none bg-transparent shadow-none gap-0 rounded-none block
           top-0 left-0 translate-x-0 translate-y-0 h-[100dvh] max-h-[100dvh] w-full max-w-full overflow-visible
@@ -25,7 +25,7 @@ export function LeadFormModal() {
         <DialogTitle className="sr-only">Fahrzeug-Anfrage</DialogTitle>
 
         <button
-          onClick={closeLeadForm}
+          onClick={() => closeLeadForm("close_button")}
           aria-label="Schließen"
           style={{ position: "fixed", top: "1rem", right: "1rem", left: "auto" }}
           className="sm:!absolute sm:!top-[-1rem] sm:!right-[-1rem] z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-navy shadow-lg border border-brand-grey/15 hover:bg-brand-light transition-colors"

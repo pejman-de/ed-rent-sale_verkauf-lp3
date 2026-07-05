@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Clock, ArrowUp } from "lucide-react";
 import { Link } from "wouter";
+import { trackClick } from "@/lib/analytics";
 
 interface FooterProps {
   onScrollToTop: () => void;
@@ -53,13 +54,35 @@ export default function Footer({ onScrollToTop }: FooterProps) {
               </li>
               <li className="flex items-center gap-3 text-sm text-white">
                 <Phone className="h-5 w-5 text-brand-cyan shrink-0" />
-                <a href="tel:+4921758845535" className="hover:text-brand-cyan transition-colors">
+                <a
+                  href="tel:+4921758845535"
+                  onClick={() =>
+                    trackClick("phone_click", {
+                      element_id: "footer_phone",
+                      element_text: "+49 217 58845535",
+                      element_location: "footer",
+                      destination_url: "tel:+4921758845535",
+                    })
+                  }
+                  className="hover:text-brand-cyan transition-colors"
+                >
                   +49 217 58845535
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-white">
                 <Mail className="h-5 w-5 text-brand-cyan shrink-0" />
-                <a href="mailto:info@ed-rent.com" className="hover:text-brand-cyan transition-colors">
+                <a
+                  href="mailto:info@ed-rent.com"
+                  onClick={() =>
+                    trackClick("email_click", {
+                      element_id: "footer_email",
+                      element_text: "info@ed-rent.com",
+                      element_location: "footer",
+                      destination_url: "mailto:info@ed-rent.com",
+                    })
+                  }
+                  className="hover:text-brand-cyan transition-colors"
+                >
                   info@ed-rent.com
                 </a>
               </li>
@@ -85,10 +108,18 @@ export default function Footer({ onScrollToTop }: FooterProps) {
               </h4>
               <ul className="space-y-2.5 text-sm text-white">
                 <li>
-                  <Link href="/impressum" className="hover:text-brand-cyan transition-colors">Impressum</Link>
+                  <Link
+                    href="/impressum"
+                    onClick={() => trackClick("link_click", { element_id: "footer_impressum", element_text: "Impressum", element_location: "footer", destination_url: "/impressum" })}
+                    className="hover:text-brand-cyan transition-colors"
+                  >Impressum</Link>
                 </li>
                 <li>
-                  <Link href="/datenschutz" className="hover:text-brand-cyan transition-colors">Datenschutzerklärung</Link>
+                  <Link
+                    href="/datenschutz"
+                    onClick={() => trackClick("link_click", { element_id: "footer_datenschutz", element_text: "Datenschutzerklärung", element_location: "footer", destination_url: "/datenschutz" })}
+                    className="hover:text-brand-cyan transition-colors"
+                  >Datenschutzerklärung</Link>
                 </li>
               </ul>
             </div>

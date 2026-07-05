@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles, ArrowRight, Percent, ShieldAlert, BadgePercent } from "lucide-react";
+import { trackClick } from "@/lib/analytics";
+import { useSectionView } from "@/hooks/useSectionView";
 
 interface DealerPathProps {
   onCtaClick: () => void;
@@ -24,8 +26,10 @@ export default function DealerPath({ onCtaClick }: DealerPathProps) {
     }
   ];
 
+  const sectionRef = useSectionView<HTMLElement>("dealer_path");
+
   return (
-    <section className="bg-white py-16 lg:py-24 border-b border-brand-grey/10">
+    <section ref={sectionRef} className="bg-white py-16 lg:py-24 border-b border-brand-grey/10">
       <div className="container">
         <div className="relative overflow-hidden border-2 border-brand-navy bg-brand-navy text-white p-8 md:p-12 lg:p-16 rounded-xl shadow-xl">
           {/* Decorative Background Pattern */}
@@ -53,7 +57,15 @@ export default function DealerPath({ onCtaClick }: DealerPathProps) {
               {/* Action Button */}
               <div className="pt-2">
                 <Button
-                  onClick={onCtaClick}
+                  onClick={() => {
+                    trackClick("cta_click", {
+                      element_id: "dealer_path_cta",
+                      element_text: "Händler-Anfrage starten",
+                      element_location: "dealer_path",
+                      extra: { lead_path: "dealer" },
+                    });
+                    onCtaClick();
+                  }}
                   className="bg-brand-cyan text-brand-navy hover:bg-brand-cyan/90 font-extrabold px-8 py-6 text-base rounded-xl shadow-md transition-all duration-150 active:scale-95 flex items-center gap-2"
                 >
                   <span>Händler-Anfrage starten</span>

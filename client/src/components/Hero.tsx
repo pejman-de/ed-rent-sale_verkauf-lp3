@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
+import { trackClick } from "@/lib/analytics";
 
 interface HeroProps {
   onPrimaryClick: () => void;
@@ -43,7 +44,10 @@ export default function Hero({ onPrimaryClick, onSecondaryClick }: HeroProps) {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
-              onClick={onPrimaryClick}
+              onClick={() => {
+                trackClick("cta_click", { element_id: "hero_primary_cta", element_text: "Fahrzeug anfragen", element_location: "hero" });
+                onPrimaryClick();
+              }}
               size="lg"
               className="bg-brand-cyan text-brand-navy hover:bg-brand-cyan/90 font-extrabold px-8 py-6 text-base rounded-xl shadow-sm transition-all duration-150 active:scale-95 flex items-center justify-center gap-2"
             >
@@ -52,7 +56,10 @@ export default function Hero({ onPrimaryClick, onSecondaryClick }: HeroProps) {
             </Button>
             
             <Button
-              onClick={onSecondaryClick}
+              onClick={() => {
+                trackClick("link_click", { element_id: "hero_secondary_cta", element_text: "Fahrzeugbestand ansehen", element_location: "hero", destination_url: "#gallery" });
+                onSecondaryClick();
+              }}
               size="lg"
               variant="outline"
               className="border-2 border-brand-navy text-brand-navy hover:bg-brand-light font-bold px-8 py-6 text-base rounded-xl transition-all duration-150 active:scale-95 flex items-center justify-center"
