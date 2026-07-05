@@ -36,10 +36,10 @@ export default function Header({ onCtaClick }: HeaderProps) {
 
           <Button
             onClick={onCtaClick}
-            className="bg-brand-navy text-white hover:bg-brand-navy/90 font-bold px-6 py-5 rounded-xl shadow-sm transition-all duration-150 active:scale-95 flex items-center gap-2"
+            className="bg-brand-cyan text-brand-navy hover:bg-brand-cyan/90 font-extrabold px-6 py-5 rounded-xl shadow-sm transition-all duration-150 active:scale-95 flex items-center gap-2"
           >
-            <span>Fahrzeug anfragen</span>
-            <ArrowRight className="h-4 w-4 text-brand-cyan" />
+            <span>Fahrzeug konfigurieren</span>
+            <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
       </div>

@@ -18,7 +18,7 @@ export function LeadFormModal() {
     <Dialog open={isOpen} onOpenChange={(open) => !open && closeLeadForm()}>
       <DialogContent
         className="p-0 border-none bg-transparent shadow-none gap-0 rounded-none block
-          top-0 left-0 translate-x-0 translate-y-0 h-[100dvh] max-h-[100dvh] w-full max-w-full overflow-hidden
+          top-0 left-0 translate-x-0 translate-y-0 h-[100dvh] max-h-[100dvh] w-full max-w-full overflow-visible
           sm:top-[50%] sm:left-[50%] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:h-auto sm:max-h-[90vh] sm:w-full sm:max-w-3xl sm:rounded-2xl"
         showCloseButton={false}
       >
@@ -27,12 +27,12 @@ export function LeadFormModal() {
         <button
           onClick={closeLeadForm}
           aria-label="Schließen"
-          className="fixed sm:absolute top-4 right-4 sm:-top-4 sm:-right-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-navy shadow-lg border border-brand-grey/15 hover:bg-brand-light transition-colors"
+          className="fixed top-4 right-4 sm:top-auto sm:right-auto sm:absolute sm:-top-4 sm:-right-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-navy shadow-lg border border-brand-grey/15 hover:bg-brand-light transition-colors"
         >
           <X className="h-5 w-5" />
         </button>
 
-        <div className="max-h-[100dvh] sm:max-h-[90vh] w-full overflow-y-auto overscroll-contain">
+        <div className="max-h-[100dvh] sm:max-h-[90vh] w-full overflow-y-auto overscroll-contain sm:rounded-2xl">
           <LeadForm key={renderKey} prefilledVehicle={selectedCategory} />
         </div>
       </DialogContent>
