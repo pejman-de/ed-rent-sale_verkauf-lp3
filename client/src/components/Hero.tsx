@@ -47,7 +47,7 @@ export default function Hero({ onPrimaryClick, onSecondaryClick }: HeroProps) {
               size="lg"
               className="bg-brand-cyan text-brand-navy hover:bg-brand-cyan/90 font-extrabold px-8 py-6 text-base rounded-xl shadow-sm transition-all duration-150 active:scale-95 flex items-center justify-center gap-2"
             >
-              <span>Fahrzeug konfigurieren</span>
+              <span>Fahrzeug anfragen</span>
               <ArrowRight className="h-5 w-5" />
             </Button>
             
