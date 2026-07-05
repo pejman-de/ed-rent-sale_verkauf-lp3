@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { trackClick } from "@/lib/analytics";
 
 interface HeaderProps {
   onCtaClick: () => void;
@@ -23,6 +24,14 @@ export default function Header({ onCtaClick }: HeaderProps) {
         <div className="flex items-center gap-6">
           <a
             href="tel:+4921758845535"
+            onClick={() =>
+              trackClick("phone_click", {
+                element_id: "header_phone",
+                element_text: "+49 217 58845535",
+                element_location: "header",
+                destination_url: "tel:+4921758845535",
+              })
+            }
             className="hidden sm:flex items-center gap-2 text-sm font-bold text-brand-navy hover:text-brand-cyan transition-colors"
           >
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-light text-brand-navy">
@@ -35,7 +44,14 @@ export default function Header({ onCtaClick }: HeaderProps) {
           </a>
 
           <Button
-            onClick={onCtaClick}
+            onClick={() => {
+              trackClick("cta_click", {
+                element_id: "header_cta",
+                element_text: "Fahrzeug anfragen",
+                element_location: "header",
+              });
+              onCtaClick();
+            }}
             className="bg-brand-cyan text-brand-navy hover:bg-brand-cyan/90 font-extrabold px-6 py-5 rounded-xl shadow-sm transition-all duration-150 active:scale-95 flex items-center gap-2"
           >
             <span>Fahrzeug anfragen</span>

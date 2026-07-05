@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Scale, Info, CheckCircle2 } from "lucide-react";
+import { trackClick, trackGalleryFilter } from "@/lib/analytics";
+import { useSectionView } from "@/hooks/useSectionView";
 
 interface InteractiveGalleryProps {
   onInquireClick: (vehicleName: string) => void;
@@ -64,14 +66,17 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
   }, [condition, selectedType, selectedBrand, selectedSpec]);
 
   // Reset Filters helper
-  const resetFilters = () => {
+  const resetFilters = (trackReset: boolean = false) => {
+    if (trackReset) trackGalleryFilter("reset", "all");
     setSelectedType('all');
     setSelectedBrand('all');
     setSelectedSpec('all');
   };
 
+  const sectionRef = useSectionView<HTMLElement>("interactive_gallery");
+
   return (
-    <section id="gallery" className="bg-white py-16 lg:py-24 border-b border-brand-grey/10">
+    <section id="gallery" ref={sectionRef} className="bg-white py-16 lg:py-24 border-b border-brand-grey/10">
       <div className="container space-y-12">
         
         {/* Section Header & Filters Row */}
@@ -84,7 +89,10 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
             </span>
             <div className="inline-flex p-1 bg-brand-light border border-brand-grey/20 rounded-xl">
               <button
-                onClick={() => { setCondition('Neu'); resetFilters(); }}
+                onClick={() => {
+                  trackGalleryFilter("condition", "Neu");
+                  setCondition('Neu'); resetFilters();
+                }}
                 className={`px-6 py-2.5 font-bold text-sm rounded-xl transition-all duration-150 ${
                   condition === 'Neu'
                     ? 'bg-brand-navy text-white shadow-sm'
@@ -94,7 +102,10 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
                 Neufahrzeuge
               </button>
               <button
-                onClick={() => { setCondition('Gebraucht'); resetFilters(); }}
+                onClick={() => {
+                  trackGalleryFilter("condition", "Gebraucht");
+                  setCondition('Gebraucht'); resetFilters();
+                }}
                 className={`px-6 py-2.5 font-bold text-sm rounded-xl transition-all duration-150 ${
                   condition === 'Gebraucht'
                     ? 'bg-brand-navy text-white shadow-sm'
@@ -111,7 +122,7 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
             {/* Filter 1: Typ */}
             <div className="space-y-1.5">
               <label className="font-sans text-[10px] font-bold text-brand-grey uppercase tracking-wider">Fahrzeugtyp</label>
-              <Select value={selectedType} onValueChange={setSelectedType}>
+              <Select value={selectedType} onValueChange={(v) => { trackGalleryFilter("type", v); setSelectedType(v); }}>
                 <SelectTrigger className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy">
                   <SelectValue placeholder="Alle Typen" />
                 </SelectTrigger>
@@ -129,7 +140,7 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
             {/* Filter 2: Marke */}
             <div className="space-y-1.5">
               <label className="font-sans text-[10px] font-bold text-brand-grey uppercase tracking-wider">Marke</label>
-              <Select value={selectedBrand} onValueChange={setSelectedBrand}>
+              <Select value={selectedBrand} onValueChange={(v) => { trackGalleryFilter("brand", v); setSelectedBrand(v); }}>
                 <SelectTrigger className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy">
                   <SelectValue placeholder="Alle Marken" />
                 </SelectTrigger>
@@ -147,7 +158,7 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
             {/* Filter 3: Aufbau / Leistung */}
             <div className="space-y-1.5">
               <label className="font-sans text-[10px] font-bold text-brand-grey uppercase tracking-wider">Spezifikation</label>
-              <Select value={selectedSpec} onValueChange={setSelectedSpec}>
+              <Select value={selectedSpec} onValueChange={(v) => { trackGalleryFilter("spec", v); setSelectedSpec(v); }}>
                 <SelectTrigger className="w-full bg-white border-brand-grey/30 rounded-xl h-11 text-xs font-semibold text-brand-navy">
                   <SelectValue placeholder="Standard" />
                 </SelectTrigger>
@@ -242,7 +253,15 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
                     </div>
 
                     <Button
-                      onClick={() => onInquireClick(vehicle.name)}
+                      onClick={() => {
+                        trackClick("tile_click", {
+                          element_id: `vehicle_${vehicle.id}`,
+                          element_text: "Anfragen",
+                          element_location: "gallery",
+                          extra: { category_name: vehicle.name },
+                        });
+                        onInquireClick(vehicle.name);
+                      }}
                       className="bg-brand-navy text-white hover:bg-brand-navy/90 font-bold text-xs px-4 py-4 rounded-xl transition-all duration-150 active:scale-95 flex items-center gap-1.5"
                     >
                       <span>Anfragen</span>
@@ -267,7 +286,7 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
                 </p>
               </div>
               <Button
-                onClick={resetFilters}
+                onClick={() => resetFilters(true)}
                 variant="outline"
                 className="font-sans font-bold text-xs border-brand-navy text-brand-navy rounded-xl"
               >
@@ -291,7 +310,14 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
             </div>
           </div>
           <Button
-            onClick={() => onInquireClick("Individuelle Spezifikation")}
+            onClick={() => {
+              trackClick("cta_click", {
+                element_id: "gallery_custom_spec_cta",
+                element_text: "Individuelles Fahrzeug anfragen",
+                element_location: "gallery",
+              });
+              onInquireClick("Individuelle Spezifikation");
+            }}
             className="bg-brand-navy text-white hover:bg-brand-navy/90 font-bold text-xs px-6 py-5 rounded-xl shrink-0 shadow-sm transition-all duration-150 active:scale-95"
           >
             Individuelles Fahrzeug anfragen

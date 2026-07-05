@@ -11,9 +11,18 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { useLeadFormModal } from "@/contexts/LeadFormModalContext";
 import { DEALER_INQUIRY_SENTINEL } from "@/components/LeadForm";
+import { useScrollDepth } from "@/hooks/useScrollDepth";
+import { useSectionView } from "@/hooks/useSectionView";
 
 export default function Home() {
   const { openLeadForm } = useLeadFormModal();
+  useScrollDepth();
+
+  const socialProofRef = useSectionView<HTMLDivElement>("social_proof");
+  const uspRef = useSectionView<HTMLDivElement>("usp_section");
+  const processRef = useSectionView<HTMLDivElement>("process_metrics");
+  const proofRef = useSectionView<HTMLDivElement>("proof_block");
+  const faqRef = useSectionView<HTMLDivElement>("faq_section");
 
   const scrollToGallery = () => {
     const element = document.getElementById("gallery");
@@ -28,29 +37,39 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-brand-navy">
-      <Header onCtaClick={() => openLeadForm()} />
+      <Header onCtaClick={() => openLeadForm(undefined, "header_cta")} />
 
       <main className="flex-grow">
         <Hero
-          onPrimaryClick={() => openLeadForm()}
+          onPrimaryClick={() => openLeadForm(undefined, "hero_primary_cta")}
           onSecondaryClick={scrollToGallery}
         />
 
-        <SocialProof />
+        <div ref={socialProofRef}>
+          <SocialProof />
+        </div>
 
-        <InteractiveGallery onInquireClick={(vehicleName) => openLeadForm(vehicleName)} />
+        <InteractiveGallery onInquireClick={(vehicleName) => openLeadForm(vehicleName, "vehicle_tile")} />
 
-        <USPSection />
+        <div ref={uspRef}>
+          <USPSection />
+        </div>
 
-        <ProcessAndMetrics />
+        <div ref={processRef}>
+          <ProcessAndMetrics />
+        </div>
 
         <SalesCTA />
 
-        <ProofBlock />
+        <div ref={proofRef}>
+          <ProofBlock />
+        </div>
 
-        <DealerPath onCtaClick={() => openLeadForm(DEALER_INQUIRY_SENTINEL)} />
+        <DealerPath onCtaClick={() => openLeadForm(DEALER_INQUIRY_SENTINEL, "dealer_path_cta")} />
 
-        <FAQ />
+        <div ref={faqRef}>
+          <FAQ />
+        </div>
       </main>
 
       <Footer onScrollToTop={scrollToTop} />

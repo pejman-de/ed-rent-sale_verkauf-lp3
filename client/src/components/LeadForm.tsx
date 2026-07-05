@@ -17,6 +17,13 @@ import { toast } from "sonner";
 import { Loader2, Send, CheckCircle2, ShieldCheck, Truck, ClipboardList, UserRound, Check, ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { useLeadFormModal } from "@/contexts/LeadFormModalContext";
+import {
+  trackModalStepView,
+  trackModalStepCompleted,
+  trackFormError,
+  trackFormStart,
+  trackFormSubmit,
+} from "@/lib/analytics";
 
 const WORKER_URL = "https://ed-lead-proxy-lp3.pjslm-ed-lead-proxy.workers.dev";
 
@@ -81,7 +88,7 @@ export const DEALER_INQUIRY_SENTINEL = "__dealer_paket_anfrage__";
 const isDealerInquiry = (value?: string) => value === DEALER_INQUIRY_SENTINEL;
 
 export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
-  const { closeLeadForm } = useLeadFormModal();
+  const { closeLeadForm, reportStep, reportCompleted } = useLeadFormModal();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [step, setStep] = useState(1);
@@ -128,6 +135,14 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
       setValue("stueckzahl", 1);
     }
   }, [watchLeadPath, setValue]);
+
+  // Bei jedem Mount (= jedes Öffnen des Modals) Schritt 1 + form_start tracken
+  useEffect(() => {
+    trackModalStepView(1, STEPS[0].label, STEPS.length);
+    trackFormStart();
+    reportStep(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // 2. Lead-Scoring: 4-Faktor-Punktesystem (Hot >=70 / Warm 40-69 / Cold <40)
   const calculateLeadScore = (data: FormValues): { points: number; grade: "Hot" | "Warm" | "Cold" } => {
@@ -222,16 +237,23 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
 
   const handleNext = () => {
     if (validateStep(step)) {
+      trackModalStepCompleted(step, STEPS[step - 1]?.label ?? `step_${step}`);
       const nextStep = Math.min(step + 1, STEPS.length);
+      trackModalStepView(nextStep, STEPS[nextStep - 1]?.label ?? `step_${nextStep}`, STEPS.length);
+      reportStep(nextStep);
       // Alte Fehler des Zielschritts entfernen, damit dieser sauber startet,
       // falls er zuvor schon einmal (z.B. per Absenden) validiert wurde.
       clearStepErrors(nextStep);
       setStep(nextStep);
+    } else {
+      const fieldNames = Object.keys(stepSchemas[step - 1].shape);
+      trackFormError(step, fieldNames.filter((name) => !!errors[name as keyof FormValues]));
     }
   };
 
   const handleBack = () => {
     const prevStep = Math.max(step - 1, 1);
+    reportStep(prevStep);
     // Fehler sowohl des aktuellen als auch des Zielschritts loeschen.
     clearStepErrors(step);
     clearStepErrors(prevStep);
@@ -242,13 +264,17 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
     // Nur den letzten Schritt validieren (Schritte 1+2 wurden beim Weiterklicken
     // bereits geprueft). Verhindert Fehleranzeige fuer bereits gefuellte Felder.
     if (!validateStep(STEPS.length)) {
+      const fieldNames = Object.keys(stepSchemas[STEPS.length - 1].shape);
+      trackFormError(STEPS.length, fieldNames.filter((name) => !!errors[name as keyof FormValues]));
       return;
     }
 
     const data = getValues();
 
     if (data.website) {
-      // Honeypot ausgefuellt -> vermutlich Bot, so tun als waere alles ok
+      // Honeypot ausgefuellt -> vermutlich Bot, so tun als waere alles ok.
+      // Bewusst KEIN form_submit/reportCompleted hier, damit Bot-Treffer die
+      // Conversion-Zahlen nicht verfälschen.
       setIsSubmitting(true);
       await new Promise((resolve) => setTimeout(resolve, 800));
       setIsSubmitting(false);
@@ -290,10 +316,21 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
         throw new Error(`Worker antwortete mit Status ${res.status}`);
       }
 
+      // Wichtig: reportCompleted() VOR setIsSuccess, damit ein direkt
+      // folgendes Schließen des Modals NICHT zusätzlich als form_abandon zählt.
+      reportCompleted();
+      trackFormSubmit("lp3_verkaufsanfrage", STEPS.length, {
+        lead_grade: grade,
+        lead_path: data.lead_path,
+        fahrzeugtyp: data.fahrzeugtyp,
+        condition: data.condition,
+      });
+
       setIsSubmitting(false);
       setIsSuccess(true);
     } catch (err) {
       setIsSubmitting(false);
+      trackFormError(STEPS.length, ["submit_failed"]);
       toast.error("Anfrage konnte nicht übermittelt werden. Bitte versuchen Sie es erneut.");
     }
   };
