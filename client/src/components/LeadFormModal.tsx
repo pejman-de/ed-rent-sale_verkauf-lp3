@@ -27,7 +27,8 @@ export function LeadFormModal() {
         <button
           onClick={closeLeadForm}
           aria-label="Schließen"
-          className="fixed top-4 right-4 sm:top-auto sm:right-auto sm:absolute sm:-top-4 sm:-right-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-navy shadow-lg border border-brand-grey/15 hover:bg-brand-light transition-colors"
+          style={{ position: "fixed", top: "1rem", right: "1rem", left: "auto" }}
+          className="sm:!absolute sm:!top-[-1rem] sm:!right-[-1rem] z-50 flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-navy shadow-lg border border-brand-grey/15 hover:bg-brand-light transition-colors"
         >
           <X className="h-5 w-5" />
         </button>
