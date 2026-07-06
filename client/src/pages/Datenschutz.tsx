@@ -140,6 +140,47 @@ export default function Datenschutz() {
               <p>
                 Ihre Daten werden nach abschließender Bearbeitung Ihrer Anfrage gelöscht. Dies ist der Fall, wenn sich aus den Umständen entnehmen lässt, dass der betroffene Sachverhalt abschließend geklärt ist und sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
               </p>
+
+              <div className="space-y-4 pl-4 border-l-2 border-brand-cyan/30">
+                <h3 className="font-bold text-brand-navy">Weiterleitung über Cloudflare Workers</h3>
+                <p>
+                  Die technische Übermittlung Ihrer über das Kontaktformular eingegebenen Daten an unser CRM-System (siehe unten) erfolgt über einen sogenannten „Cloudflare Worker", einen serverseitigen Dienst der Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA. Der Cloudflare Worker leitet Ihre Formulardaten ausschließlich technisch weiter und speichert diese nicht dauerhaft.
+                </p>
+                <p>
+                  Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer zuverlässigen und performanten technischen Anbindung unseres Kontaktformulars gemäß Art. 6 Abs. 1 lit. f DSGVO, in Fällen einer vertragsbezogenen Anfrage zusätzlich gemäß Art. 6 Abs. 1 lit. b DSGVO.
+                </p>
+                <p>
+                  Cloudflare kann im Rahmen dieser Verarbeitung personenbezogene Daten auch auf Servern in den USA verarbeiten. Cloudflare hat sich nach eigenen Angaben dem EU-US Data Privacy Framework angeschlossen; ergänzend besteht mit Cloudflare ein Auftragsverarbeitungsvertrag auf Grundlage der Standardvertragsklauseln der EU-Kommission.
+                </p>
+                <p>
+                  Weitere Informationen:{" "}
+                  <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
+                    https://www.cloudflare.com/privacypolicy/
+                  </a>
+                </p>
+              </div>
+
+              <div className="space-y-4 pl-4 border-l-2 border-brand-cyan/30">
+                <h3 className="font-bold text-brand-navy">Brevo (CRM-System zur Bearbeitung Ihrer Anfrage)</h3>
+                <p>
+                  Zur Verwaltung und Bearbeitung Ihrer über das Kontaktformular übermittelten Anfrage nutzen wir das CRM-System Brevo der Brevo SAS, 8 rue de Londres, 75009 Paris, Frankreich. Ihre im Formular angegebenen Daten (z.B. Name, E-Mail-Adresse, Telefonnummer, Inhalt Ihrer Anfrage) werden dort gespeichert, um Ihr Anliegen zu bearbeiten und Ihnen zu antworten.
+                </p>
+                <p>
+                  Innerhalb von Brevo können anhand der von Ihnen übermittelten Angaben automatisierte Vorgänge (z.B. Zuordnung zu einer zuständigen Ansprechperson oder automatisierte Erinnerungen zur Anfragebearbeitung) ausgelöst werden. Diese automatisierten Vorgänge dienen ausschließlich der Bearbeitung Ihrer konkreten Anfrage und nicht der allgemeinen Zusendung von Werbung oder Newslettern, sofern Sie einer solchen nicht gesondert zugestimmt haben.
+                </p>
+                <p>
+                  Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer strukturierten und effizienten Bearbeitung eingehender Anfragen gemäß Art. 6 Abs. 1 lit. f DSGVO, in Fällen einer vertragsbezogenen Anfrage zusätzlich gemäß Art. 6 Abs. 1 lit. b DSGVO.
+                </p>
+                <p>
+                  Wir haben mit Brevo einen Auftragsverarbeitungsvertrag abgeschlossen.
+                </p>
+                <p>
+                  Weitere Informationen:{" "}
+                  <a href="https://www.brevo.com/de/legal/privacypolicy/" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
+                    https://www.brevo.com/de/legal/privacypolicy/
+                  </a>
+                </p>
+              </div>
             </section>
 
             {/* Section 6 */}
