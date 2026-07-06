@@ -22,7 +22,7 @@ export const VEHICLES: Vehicle[] = [
     brand: 'Mercedes-Benz',
     type: 'Sprinter',
     condition: 'Neu',
-    price: 'ab 48.900 €',
+    price: 'Auf Anfrage',
     availability: 'Sofort verfügbar',
     image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/sprinter-van-5DR4HEUukecV5zR6f4dVco.webp',
     specs: {
@@ -38,7 +38,7 @@ export const VEHICLES: Vehicle[] = [
     brand: 'Iveco',
     type: 'Box',
     condition: 'Neu',
-    price: 'ab 54.500 €',
+    price: 'Auf Anfrage',
     availability: 'Sofort verfügbar',
     image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/box-truck-SvfmbwNPJojKePdkhjE3B2.webp',
     specs: {
@@ -54,7 +54,7 @@ export const VEHICLES: Vehicle[] = [
     brand: 'MAN',
     type: 'Sprinter',
     condition: 'Neu',
-    price: 'ab 46.200 €',
+    price: 'Auf Anfrage',
     availability: 'In 2 Wochen',
     image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/man-tge-VaUD9y5D3jDDEwqTY9Ef4X.webp',
     specs: {
@@ -70,7 +70,7 @@ export const VEHICLES: Vehicle[] = [
     brand: 'Fiat',
     type: 'Van',
     condition: 'Gebraucht',
-    price: 'ab 28.900 €',
+    price: 'Auf Anfrage',
     availability: 'Sofort verfügbar',
     image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/fiat-ducato-RFSmMTSgHWNPi5rJwk52iK.webp',
     specs: {
@@ -86,7 +86,7 @@ export const VEHICLES: Vehicle[] = [
     brand: 'Opel',
     type: 'Van',
     condition: 'Gebraucht',
-    price: 'ab 26.500 €',
+    price: 'Auf Anfrage',
     availability: 'In 5 Tagen',
     image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/opel-movano-dEwqdN9TneRNuUpxbYVHBB.webp',
     specs: {
@@ -102,7 +102,7 @@ export const VEHICLES: Vehicle[] = [
     brand: 'Mercedes-Benz',
     type: 'LKW',
     condition: 'Neu',
-    price: 'ab 94.900 €',
+    price: 'Auf Anfrage',
     availability: 'Auf Anfrage',
     image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/heavy-truck-4r8Em5i6pjKBFsTWUDTvpp.webp',
     specs: {

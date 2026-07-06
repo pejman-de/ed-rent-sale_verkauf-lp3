@@ -247,9 +247,6 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
                       <span className="font-extrabold text-xl text-brand-navy">
                         {vehicle.price}
                       </span>
-                      <span className="font-sans text-[9px] text-brand-grey font-medium mt-0.5">
-                        zzgl. MwSt. • Leasing ab Werk
-                      </span>
                     </div>
 
                     <Button
