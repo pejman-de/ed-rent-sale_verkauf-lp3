@@ -26,7 +26,7 @@ export default function Footer({ onScrollToTop }: FooterProps) {
               />
             </div>
             <p className="text-sm text-white max-w-sm leading-relaxed">
-              Ihr spezialisierter Partner für Geschäftskunden für hochwertige Nutzfahrzeuge im Raum Leichlingen, Köln und Düsseldorf. Kauf, Sonderaufbauten und Finanzierung aus einer Hand.
+              Ihr zuverlässiger Partner für hochwertige Nutzfahrzeuge im Raum Leichlingen, Köln und Düsseldorf. Kauf, Sonderaufbauten und Finanzierung aus einer Hand.
             </p>
             <div className="flex items-start gap-3 text-xs text-white">
               <Clock className="h-4 w-4 text-brand-cyan shrink-0 mt-0.5" />
@@ -66,7 +66,7 @@ export default function Footer({ onScrollToTop }: FooterProps) {
                   }
                   className="hover:text-brand-cyan transition-colors"
                 >
-                  +49 217 58845535
+                  +49 2175 8845535
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-white">
