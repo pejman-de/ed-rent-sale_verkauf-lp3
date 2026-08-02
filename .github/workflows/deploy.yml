@@ -35,6 +35,8 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          SITE_DOMAIN: verkauf.ed-rent.de
 
       - name: SPA-Fallback fuer Direktaufrufe
         run: cp dist/public/index.html dist/public/404.html
