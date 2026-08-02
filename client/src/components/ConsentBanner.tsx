@@ -10,8 +10,8 @@ import {
 //
 // Gestaltung nach der Orientierungshilfe der Datenschutzkonferenz und dem
 // Urteil des VG Hannover vom 19.03.2025: Ablehnen muss genauso einfach sein
-// wie Zustimmen. Beide Schaltflaechen sind deshalb in Groesse, Position und
-// Kontrast gleichwertig. Keine vorausgewaehlten Haken ausser Notwendig.
+// wie Zustimmen. Beide Schaltflächen sind deshalb in Größe, Position und
+// Kontrast gleichwertig. Keine vorausgewählten Haken außer Notwendig.
 // -------------------------------------------------------------------------
 
 interface Auswahl {
@@ -50,7 +50,7 @@ export function ConsentBanner() {
     });
   }, []);
 
-  // Erlaubt das spaetere Aendern der Entscheidung, etwa ueber einen Link
+  // Erlaubt das spätere Ändern der Entscheidung, etwa über einen Link
   // im Footer oder auf der Datenschutzseite.
   useEffect(() => {
     window.edEinwilligungOeffnen = () => {
@@ -103,15 +103,15 @@ export function ConsentBanner() {
           Ihre Auswahl zu Cookies und Tracking
         </h2>
         <p className="mt-2 text-sm text-slate-600">
-          Wir setzen Cookies und aehnliche Techniken ein. Notwendige Funktionen
+          Wir setzen Cookies und ähnliche Techniken ein. Notwendige Funktionen
           sind immer aktiv. Alles Weitere nur mit Ihrer Einwilligung. Sie
-          koennen Ihre Entscheidung jederzeit aendern. Einzelheiten stehen in
+          können Ihre Entscheidung jederzeit ändern. Einzelheiten stehen in
           der{" "}
           <a
             href="/datenschutz"
             className="underline underline-offset-2 hover:text-slate-900"
           >
-            Datenschutzerklaerung
+            Datenschutzerklärung
           </a>
           .
         </p>
@@ -120,13 +120,13 @@ export function ConsentBanner() {
           <div className="mt-4 space-y-3 border-t border-slate-200 pt-4">
             <Zeile
               titel="Notwendig"
-              text="Fuer den Betrieb der Seite erforderlich. Nicht abwaehlbar."
+              text="Für den Betrieb der Seite erforderlich. Nicht abwählbar."
               aktiv
               gesperrt
             />
             <Zeile
               titel="Funktional"
-              text="Laedt den Tag Manager. Voraussetzung fuer Statistik und Marketing."
+              text="Lädt den Google Tag Manager. Voraussetzung für Statistik und Marketing."
               aktiv={auswahl.funktional}
               beiKlick={() => umschalten("funktional")}
             />
@@ -138,7 +138,7 @@ export function ConsentBanner() {
             />
             <Zeile
               titel="Marketing"
-              text="Kampagnenmessung und Zielgruppen, unter anderem Meta."
+              text="Kampagnenmessung und Zielgruppen bei Meta (Facebook/Instagram) und Google."
               aktiv={auswahl.marketing}
               beiKlick={() => umschalten("marketing")}
             />
@@ -219,6 +219,6 @@ function Zeile({
 
 export default ConsentBanner;
 
-// Verhindert, dass der Import als ungenutzt gilt, wenn das Event spaeter
-// an anderer Stelle abgehoert wird.
+// Verhindert, dass der Import als ungenutzt gilt, wenn das Event später
+// an anderer Stelle abgehört wird.
 export { EINWILLIGUNG_EVENT };
