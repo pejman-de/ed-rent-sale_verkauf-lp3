@@ -59,7 +59,7 @@ export default function Footer({ onScrollToTop }: FooterProps) {
                   onClick={() =>
                     trackClick("phone_click", {
                       element_id: "footer_phone",
-                      element_text: "+49 217 58845535",
+                      element_text: "+49 2175 8845535",
                       element_location: "footer",
                       destination_url: "tel:+4921758845535",
                     })
@@ -72,18 +72,18 @@ export default function Footer({ onScrollToTop }: FooterProps) {
               <li className="flex items-center gap-3 text-sm text-white">
                 <Mail className="h-5 w-5 text-brand-cyan shrink-0" />
                 <a
-                  href="mailto:info@ed-rent.com"
+                  href="mailto:info@ed-rent.de"
                   onClick={() =>
                     trackClick("email_click", {
                       element_id: "footer_email",
-                      element_text: "info@ed-rent.com",
+                      element_text: "info@ed-rent.de",
                       element_location: "footer",
-                      destination_url: "mailto:info@ed-rent.com",
+                      destination_url: "mailto:info@ed-rent.de",
                     })
                   }
                   className="hover:text-brand-cyan transition-colors"
                 >
-                  info@ed-rent.com
+                  info@ed-rent.de
                 </a>
               </li>
             </ul>
@@ -120,6 +120,16 @@ export default function Footer({ onScrollToTop }: FooterProps) {
                     onClick={() => trackClick("link_click", { element_id: "footer_datenschutz", element_text: "Datenschutzerklärung", element_location: "footer", destination_url: "/datenschutz" })}
                     className="hover:text-brand-cyan transition-colors"
                   >Datenschutzerklärung</Link>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      trackClick("link_click", { element_id: "footer_cookie_einstellungen", element_text: "Cookie-Einstellungen", element_location: "footer", destination_url: "#" });
+                      window.edEinwilligungOeffnen?.();
+                    }}
+                    className="hover:text-brand-cyan transition-colors text-left"
+                  >Cookie-Einstellungen</button>
                 </li>
               </ul>
             </div>

@@ -63,7 +63,7 @@ export default function Datenschutz() {
                 <p>42799 Leichlingen (Rheinland)</p>
                 <p>Deutschland</p>
                 <p className="pt-2">Tel.: +49 2175 8845535</p>
-                <p>E-Mail: info@ed-rent.com</p>
+                <p>E-Mail: info@ed-rent.de</p>
               </div>
               <p className="text-sm">
                 Der für die Verarbeitung von personenbezogenen Daten Verantwortliche ist diejenige natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.
@@ -347,27 +347,18 @@ export default function Datenschutz() {
                 8. Tools und Sonstiges
               </h2>
               <div className="space-y-4 pl-4 border-l-2 border-brand-cyan/30">
-                <h3 className="font-bold text-brand-navy">Cookie-Consent-Tool (Real Cookie Banner)</h3>
+                <h3 className="font-bold text-brand-navy">Cookie-Consent-Tool (eigene Umsetzung)</h3>
                 <p>
-                  Diese Website verwendet Real Cookie Banner, ein Consent-Management-Tool zur rechtskonformen Einholung, Verwaltung und Dokumentation von Cookie-Einwilligungen. Anbieter ist die devowl.io GmbH, Tannet 12, 94539 Grafling, Deutschland.
+                  Die Einholung, Verwaltung und Dokumentation Ihrer Cookie-Einwilligung erfolgt über eine selbst entwickelte, in die Website integrierte Consent-Verwaltung. Es handelt sich nicht um ein Plugin oder einen Dienst eines externen Anbieters; es findet keine Übermittlung Ihrer Einwilligungsentscheidung an Dritte statt.
                 </p>
                 <p>
-                  Real Cookie Banner ist vollständig als natives WordPress-Plugin installiert. Alle Einwilligungen und Einstellungen werden ausschließlich auf unserem eigenen Server verarbeitet und gespeichert. Eine Weitergabe Ihrer Daten an devowl.io findet im Normalbetrieb nicht statt.
-                </p>
-                <p>
-                  Das Tool setzt technisch notwendige Cookies, um Ihre Cookie-Präferenzen zu speichern. Diese Cookies enthalten keine personenbezogenen Daten im Sinne der DSGVO.
+                  Ihre Auswahl wird ausschließlich lokal in Ihrem Browser gespeichert (Local Storage) und nicht an unsere Server oder an Dritte übertragen. Erst nach Erteilung Ihrer Einwilligung wird der Google Tag Manager nachgeladen; die darüber eingebundenen Dienste (siehe unten) werden entsprechend Ihrer Auswahl nach Kategorien (Funktional, Statistik, Marketing) freigeschaltet oder blockiert.
                 </p>
                 <p>
                   Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtung zur Einholung von Einwilligungen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem rechtskonformen Consent-Management).
                 </p>
                 <p>
                   Sie können Ihre Cookie-Einwilligung jederzeit über den Link „Cookie-Einstellungen“ im Footer der Website widerrufen oder anpassen.
-                </p>
-                <p>
-                  Weitere Informationen:{" "}
-                  <a href="https://devowl.io/de/rcb/datenverarbeitung/" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
-                    https://devowl.io/de/rcb/datenverarbeitung/
-                  </a>
                 </p>
               </div>
             </section>
