@@ -23,7 +23,9 @@ import {
   trackFormError,
   trackFormStart,
   trackFormSubmit,
+  trackFormSubmitFailed,
 } from "@/lib/analytics";
+import { getLeadContext } from "@/lib/leadContext";
 
 const WORKER_URL = "https://ed-lead-proxy-lp3.pjslm-ed-lead-proxy.workers.dev";
 
@@ -177,18 +179,6 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
     return { points, grade };
   };
 
-  // UTM-Parameter aus der URL einmalig einlesen
-  const getUtmParams = () => {
-    const params = new URLSearchParams(window.location.search);
-    return {
-      utm_source: params.get("utm_source") || undefined,
-      utm_medium: params.get("utm_medium") || undefined,
-      utm_campaign: params.get("utm_campaign") || undefined,
-      utm_term: params.get("utm_term") || undefined,
-      utm_content: params.get("utm_content") || undefined,
-    };
-  };
-
   // Validiert die Felder eines einzelnen Schritts. Setzt/loescht Fehler nur
   // fuer die Felder dieses Schritts. Kein globaler Resolver -> keine ungewollte
   // Re-Validierung noch nicht ausgefuellter Felder aus spaeteren Schritten.
@@ -308,19 +298,33 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
           stueckzahl: data.stueckzahl,
           finanzierung: data.finanzierung,
           aufbau: data.aufbau,
-          ...getUtmParams(),
+          ...getLeadContext(),
         }),
       });
 
+      const ergebnis = await res.json().catch(() => ({} as Record<string, unknown>));
+
       if (!res.ok) {
-        throw new Error(`Worker antwortete mit Status ${res.status}`);
+        const referenz = typeof ergebnis.reference === "string" ? ergebnis.reference : undefined;
+        setIsSubmitting(false);
+        trackFormSubmitFailed("lp3_verkaufsanfrage", res.status, referenz);
+        toast.error("Anfrage konnte nicht übermittelt werden.", {
+          description: referenz
+            ? `Bitte erneut versuchen. Referenznummer: ${referenz}`
+            : "Bitte versuchen Sie es erneut oder rufen Sie uns an.",
+        });
+        return;
       }
+
+      // Der Worker rechnet den Score selbst und liefert ihn zurueck. Der
+      // Clientwert dient nur noch als Rueckfallebene fuer GA4.
+      const serverGrade = typeof ergebnis.leadGrade === "string" ? ergebnis.leadGrade : grade;
 
       // Wichtig: reportCompleted() VOR setIsSuccess, damit ein direkt
       // folgendes Schließen des Modals NICHT zusätzlich als form_abandon zählt.
       reportCompleted();
       trackFormSubmit("lp3_verkaufsanfrage", STEPS.length, {
-        lead_grade: grade,
+        lead_grade: serverGrade,
         lead_path: data.lead_path,
         fahrzeugtyp: data.fahrzeugtyp,
         condition: data.condition,
@@ -330,8 +334,10 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
       setIsSuccess(true);
     } catch (err) {
       setIsSubmitting(false);
-      trackFormError(STEPS.length, ["submit_failed"]);
-      toast.error("Anfrage konnte nicht übermittelt werden. Bitte versuchen Sie es erneut.");
+      trackFormSubmitFailed("lp3_verkaufsanfrage", 0);
+      toast.error("Die Verbindung wurde unterbrochen.", {
+        description: "Bitte prüfen Sie Ihre Internetverbindung und senden Sie erneut.",
+      });
     }
   };
 

@@ -123,3 +123,28 @@ export function trackGalleryFilter(filter_name: string, filter_value: string) {
   // LP3-spezifisch (InteractiveGallery), aber generisch nutzbar
   pushEvent("gallery_filter", { filter_name, filter_value });
 }
+
+// -------------------------------------------------------------------------
+// 5. SPA-Seitenaufrufe (Routenwechsel ohne Neuladen)
+// -------------------------------------------------------------------------
+
+/**
+ * Meldet einen Routenwechsel als virtuellen Seitenaufruf.
+ * Das GA4-Konfigurationstag feuert page_view nur beim ersten Laden.
+ * Der Aufruf wird in App.tsx an den wouter-Router gehaengt.
+ */
+export function trackPageView(page_path: string, page_title?: string) {
+  pushEvent("virtual_page_view", {
+    page_path,
+    page_location: typeof window !== "undefined" ? window.location.href : undefined,
+    page_title: page_title ?? (typeof document !== "undefined" ? document.title : undefined),
+  });
+}
+
+/**
+ * Fehlgeschlagene Uebermittlung. Wird zusaetzlich zu form_error gemeldet,
+ * damit sich in GA4 Serverfehler von Eingabefehlern trennen lassen.
+ */
+export function trackFormSubmitFailed(form_name: string, status_code: number, reference?: string) {
+  pushEvent("form_submit_failed", { form_name, status_code, reference: reference ?? "none" });
+}

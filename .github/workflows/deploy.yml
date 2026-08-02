@@ -36,6 +36,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: SPA-Fallback fuer Direktaufrufe
+        run: cp dist/public/index.html dist/public/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
