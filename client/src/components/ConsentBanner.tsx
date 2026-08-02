@@ -68,20 +68,15 @@ export function ConsentBanner() {
     setZeigeDetails(false);
   }
 
-  function umschalten(schluessel: keyof Auswahl) {
+  // "Funktional" ist keine eigene, waehlbare Kategorie, sondern die
+  // technische Voraussetzung fuer Statistik und Marketing (Laden des
+  // Google Tag Manager). Sie wird deshalb nicht separat abgefragt,
+  // sondern automatisch gesetzt, sobald einer der beiden echten Zwecke
+  // gewaehlt wird - und automatisch entfernt, wenn keiner mehr aktiv ist.
+  function umschalten(schluessel: "statistik" | "marketing") {
     setAuswahl((alt) => {
       const neu = { ...alt, [schluessel]: !alt[schluessel] };
-      // Statistik und Marketing setzen Funktional voraus.
-      if (schluessel === "funktional" && !neu.funktional) {
-        neu.statistik = false;
-        neu.marketing = false;
-      }
-      if (
-        (schluessel === "statistik" || schluessel === "marketing") &&
-        neu[schluessel]
-      ) {
-        neu.funktional = true;
-      }
+      neu.funktional = neu.statistik || neu.marketing;
       return neu;
     });
   }
@@ -125,20 +120,14 @@ export function ConsentBanner() {
               gesperrt
             />
             <Zeile
-              titel="Funktional"
-              text="Lädt den Google Tag Manager. Voraussetzung für Statistik und Marketing."
-              aktiv={auswahl.funktional}
-              beiKlick={() => umschalten("funktional")}
-            />
-            <Zeile
               titel="Statistik"
-              text="Reichweitenmessung mit Google Analytics."
+              text="Lädt den Google Tag Manager und ermöglicht die Reichweitenmessung mit Google Analytics."
               aktiv={auswahl.statistik}
               beiKlick={() => umschalten("statistik")}
             />
             <Zeile
               titel="Marketing"
-              text="Kampagnenmessung und Zielgruppen bei Meta (Facebook/Instagram) und Google."
+              text="Lädt den Google Tag Manager und ermöglicht Kampagnenmessung und Zielgruppen bei Meta (Facebook/Instagram) und Google."
               aktiv={auswahl.marketing}
               beiKlick={() => umschalten("marketing")}
             />
