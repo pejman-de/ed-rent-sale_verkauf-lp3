@@ -8,6 +8,8 @@
  * -----------------------------------------------------------------------
  */
 
+import { leseEinwilligung } from "./consent";
+
 const STORAGE_KEY = "ed_lead_context";
 
 const UTM_KEYS = [
@@ -66,6 +68,24 @@ export function getGaClientId(): string | undefined {
 }
 
 /**
+ * _fbc und _fbp werden ausschliesslich vom Meta Pixel selbst gesetzt, und
+ * der Pixel laedt bei uns erst nach erteilter Marketing-Einwilligung (siehe
+ * consent.ts). Ohne Einwilligung existieren die Cookies schlicht nicht,
+ * eine zusaetzliche Abfrage ist hier nicht noetig.
+ */
+export function getFbc(): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const treffer = document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/);
+  return treffer ? decodeURIComponent(treffer[1]) : undefined;
+}
+
+export function getFbp(): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const treffer = document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/);
+  return treffer ? decodeURIComponent(treffer[1]) : undefined;
+}
+
+/**
  * Werte fuer den Lead-Payload. UTM-Parameter zuerst aus der URL, sonst aus
  * der Sitzung, sonst die bisherigen Vorgabewerte direct und none.
  */
@@ -84,5 +104,8 @@ export function getLeadContext() {
     utm_term: wert("utm_term", "none"),
     utm_content: wert("utm_content", "none"),
     ga_client_id: getGaClientId(),
+    fbc: getFbc(),
+    fbp: getFbp(),
+    marketing_consent: leseEinwilligung()?.marketing === true,
   };
 }
