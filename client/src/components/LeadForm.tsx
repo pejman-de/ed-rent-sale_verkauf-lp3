@@ -24,6 +24,7 @@ import {
   trackFormStart,
   trackFormSubmit,
   trackFormSubmitFailed,
+  createEventId,
 } from "@/lib/analytics";
 import { getLeadContext } from "@/lib/leadContext";
 
@@ -275,11 +276,15 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
     setIsSubmitting(true);
     const { points, grade } = calculateLeadScore(data);
 
+    // Einmal pro Absendeversuch. Ein Retry erzeugt bewusst eine neue ID.
+    const eventId = createEventId();
+
     try {
       const res = await fetch(WORKER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          event_id: eventId,
           email: data.email,
           vorname: data.vorname,
           nachname: data.nachname,
@@ -323,7 +328,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
       // Wichtig: reportCompleted() VOR setIsSuccess, damit ein direkt
       // folgendes Schließen des Modals NICHT zusätzlich als form_abandon zählt.
       reportCompleted();
-      trackFormSubmit("lp3_verkaufsanfrage", STEPS.length, {
+      trackFormSubmit("lp3_verkaufsanfrage", STEPS.length, eventId, {
         lead_grade: serverGrade,
         lead_path: data.lead_path,
         fahrzeugtyp: data.fahrzeugtyp,

@@ -107,5 +107,8 @@ export function getLeadContext() {
     fbc: getFbc(),
     fbp: getFbp(),
     marketing_consent: leseEinwilligung()?.marketing === true,
+    // Vollstaendige LP-URL fuer event_source_url im Meta-CAPI-Payload. Der
+    // Worker kannte bisher nur den Origin aus dem Request-Header.
+    page_url: typeof window !== "undefined" ? window.location.href : undefined,
   };
 }
