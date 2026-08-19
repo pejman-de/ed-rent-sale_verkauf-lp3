@@ -18,6 +18,12 @@
 declare global {
   interface Window {
     dataLayer: Record<string, unknown>[];
+    fbq?: (
+      command: string,
+      eventName: string,
+      params?: Record<string, unknown>,
+      options?: { eventID?: string }
+    ) => void;
   }
 }
 

@@ -334,6 +334,13 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
         fahrzeugtyp: data.fahrzeugtyp,
         condition: data.condition,
       });
+      // Meta-Lead bewusst direkt statt ueber GTM: der GTM-Trigger loeste
+      // reproduzierbar dreimal aus (Klick, Formular senden, form_submit),
+      // davon zweimal ohne event_id. Siehe Testprotokoll 19.08.2026.
+      // fbq existiert nur, wenn das consent-gegatete Basis-Tag geladen wurde.
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "Lead", {}, { eventID: eventId });
+      }
 
       setIsSubmitting(false);
       setIsSuccess(true);
