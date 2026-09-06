@@ -329,6 +329,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
       // folgendes Schließen des Modals NICHT zusätzlich als form_abandon zählt.
       reportCompleted();
       trackFormSubmit("lp3_verkaufsanfrage", STEPS.length, eventId, {
+        status_code: res.status,
         lead_grade: serverGrade,
         lead_path: data.lead_path,
         fahrzeugtyp: data.fahrzeugtyp,
