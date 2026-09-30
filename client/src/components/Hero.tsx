@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Truck } from "lucide-react";
 import { trackClick } from "@/lib/analytics";
 
 interface HeroProps {
@@ -88,12 +88,13 @@ export default function Hero({ onPrimaryClick, onSecondaryClick }: HeroProps) {
           <div className="relative overflow-hidden border border-brand-grey/30 bg-brand-light rounded-xl shadow-md">
             {/* Aspect Ratio Container */}
             <div className="aspect-[16/10] w-full">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/hero-vehicles-Q99sW2nsU53yUfKN45454Y.webp"
-                alt="ED Rent & Sale Nutzfahrzeug-Lineup"
-                className="h-full w-full object-cover object-center"
-                loading="eager"
-              />
+              {/* Uebergangsloesung bis zur Ueberarbeitung von LP3: Das Bild lag auf
+                  einem fremden Server (cloudfront.net), der nicht mehr ausliefert,
+                  und wurde ohne Einwilligung abgerufen. Neues Bild lokal unter
+                  client/public/images/ ablegen und hier einbinden. */}
+              <div className="flex h-full w-full items-center justify-center" aria-hidden="true">
+                <Truck className="h-24 w-24 text-brand-grey/40" strokeWidth={1.25} />
+              </div>
             </div>
             {/* Visual overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />

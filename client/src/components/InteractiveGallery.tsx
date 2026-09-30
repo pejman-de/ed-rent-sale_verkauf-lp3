@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Scale, Info, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Scale, Info, CheckCircle2, Truck } from "lucide-react";
 import { trackClick, trackGalleryFilter } from "@/lib/analytics";
 import { useSectionView } from "@/hooks/useSectionView";
 
@@ -189,12 +189,18 @@ export default function InteractiveGallery({ onInquireClick }: InteractiveGaller
               >
                 {/* Vehicle Image Placeholder */}
                 <div className="aspect-[4/3] relative overflow-hidden bg-brand-light">
-                  <img
-                    src={vehicle.image}
-                    alt={vehicle.name}
-                    className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
+                  {vehicle.image ? (
+                    <img
+                      src={vehicle.image}
+                      alt={vehicle.name}
+                      className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center" aria-hidden="true">
+                      <Truck className="h-16 w-16 text-brand-grey/40" strokeWidth={1.25} />
+                    </div>
+                  )}
                   
                   {/* Availability Badge */}
                   <div className="absolute top-4 left-4">

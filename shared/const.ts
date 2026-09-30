@@ -6,7 +6,10 @@ export interface Vehicle {
   condition: 'Neu' | 'Gebraucht';
   price: string;
   availability: string;
-  image: string;
+  // Pfad zu einem lokal ausgelieferten Bild (z. B. /images/sprinter.webp).
+  // Ohne Bild zeigt die Galerie einen Platzhalter. Keine externen URLs,
+  // sonst geht beim Seitenaufruf ohne Einwilligung die IP an Dritte.
+  image?: string;
   specs: {
     power: string;
     payload: string;
@@ -24,7 +27,6 @@ export const VEHICLES: Vehicle[] = [
     condition: 'Neu',
     price: 'Auf Anfrage',
     availability: 'Sofort verfügbar',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/sprinter-van-5DR4HEUukecV5zR6f4dVco.webp',
     specs: {
       power: '170 PS',
       payload: '1.250 kg',
@@ -40,7 +42,6 @@ export const VEHICLES: Vehicle[] = [
     condition: 'Neu',
     price: 'Auf Anfrage',
     availability: 'Sofort verfügbar',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/box-truck-SvfmbwNPJojKePdkhjE3B2.webp',
     specs: {
       power: '180 PS',
       payload: '1.100 kg',
@@ -56,7 +57,6 @@ export const VEHICLES: Vehicle[] = [
     condition: 'Neu',
     price: 'Auf Anfrage',
     availability: 'In 2 Wochen',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/man-tge-VaUD9y5D3jDDEwqTY9Ef4X.webp',
     specs: {
       power: '177 PS',
       payload: '1.300 kg',
@@ -72,7 +72,6 @@ export const VEHICLES: Vehicle[] = [
     condition: 'Gebraucht',
     price: 'Auf Anfrage',
     availability: 'Sofort verfügbar',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/fiat-ducato-RFSmMTSgHWNPi5rJwk52iK.webp',
     specs: {
       power: '140 PS',
       payload: '1.400 kg',
@@ -88,7 +87,6 @@ export const VEHICLES: Vehicle[] = [
     condition: 'Gebraucht',
     price: 'Auf Anfrage',
     availability: 'In 5 Tagen',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/opel-movano-dEwqdN9TneRNuUpxbYVHBB.webp',
     specs: {
       power: '165 PS',
       payload: '1.200 kg',
@@ -104,7 +102,6 @@ export const VEHICLES: Vehicle[] = [
     condition: 'Neu',
     price: 'Auf Anfrage',
     availability: 'Auf Anfrage',
-    image: 'https://d2xsxph8kpxj0f.cloudfront.net/310519663281979359/iiQHyte9m2j8pb53mDZgmE/heavy-truck-4r8Em5i6pjKBFsTWUDTvpp.webp',
     specs: {
       power: '231 PS',
       payload: '6.200 kg',
