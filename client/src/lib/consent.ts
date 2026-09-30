@@ -13,7 +13,11 @@
 // -------------------------------------------------------------------------
 
 export const GTM_ID = "GTM-KCSL5HZR";
-export const EINWILLIGUNG_VERSION = 1;
+// Version 2 seit 30.09.2026: Bannertext nennt Zwecke, Anbieter, die
+// serverseitige Uebermittlung an Meta und die Rueckmeldung aus dem CRM.
+// Einwilligungen nach altem Text gelten damit nicht mehr, der Banner
+// erscheint einmal neu. Der Speicherschluessel bleibt ed_consent_v1.
+export const EINWILLIGUNG_VERSION = 2;
 
 const SPEICHER_SCHLUESSEL = "ed_consent_v1";
 export const EINWILLIGUNG_EVENT = "ed:einwilligung-geaendert";
