@@ -1,0 +1,6 @@
+# Die Vorschauadressen unter pages.dev sollen nicht in Suchmaschinen landen.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
