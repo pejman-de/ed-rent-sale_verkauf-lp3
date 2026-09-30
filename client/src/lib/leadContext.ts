@@ -8,7 +8,7 @@
  * -----------------------------------------------------------------------
  */
 
-import { leseEinwilligung } from "./consent";
+import { EINWILLIGUNG_EVENT, leseEinwilligung } from "./consent";
 
 const STORAGE_KEY = "ed_lead_context";
 
@@ -22,8 +22,18 @@ const UTM_KEYS = [
 
 type LeadContext = Partial<Record<(typeof UTM_KEYS)[number] | "landing_page" | "referrer", string>>;
 
-function read(): LeadContext {
-  if (typeof window === "undefined") return {};
+// Ohne Einwilligung liegen die Werte nur im Arbeitsspeicher der geoeffneten
+// Seite. Das deckt Routenwechsel innerhalb der Seite ab, ohne etwas auf dem
+// Endgeraet abzulegen (Paragraf 25 TDDDG). Erst mit Einwilligung in Statistik
+// oder Marketing ("funktional") wandern sie zusaetzlich in den Session Storage
+// und ueberstehen damit auch ein Neuladen.
+let imSpeicher: LeadContext = {};
+
+function darfSpeichern(): boolean {
+  return leseEinwilligung()?.funktional === true;
+}
+
+function sessionLesen(): LeadContext {
   try {
     const raw = window.sessionStorage.getItem(STORAGE_KEY);
     return raw ? (JSON.parse(raw) as LeadContext) : {};
@@ -32,12 +42,44 @@ function read(): LeadContext {
   }
 }
 
-function write(value: LeadContext) {
-  if (typeof window === "undefined") return;
+function sessionSchreiben(value: LeadContext) {
   try {
     window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(value));
   } catch {
     // Privater Modus ohne Speicher. Die Werte gelten dann nur fuer diesen Aufruf.
+  }
+}
+
+function sessionLoeschen() {
+  try {
+    window.sessionStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // unkritisch
+  }
+}
+
+function read(): LeadContext {
+  if (typeof window === "undefined") return {};
+  if (!darfSpeichern()) {
+    // Einwilligung fehlt oder wurde widerrufen: nichts Gespeichertes verwenden.
+    sessionLoeschen();
+    return imSpeicher;
+  }
+  return { ...sessionLesen(), ...imSpeicher };
+}
+
+function write(value: LeadContext) {
+  if (typeof window === "undefined") return;
+  imSpeicher = value;
+  if (darfSpeichern()) sessionSchreiben(value);
+}
+
+/** Uebernimmt die Werte in den Session Storage, sobald eingewilligt wird. */
+function beiEinwilligung() {
+  if (darfSpeichern()) {
+    if (Object.keys(imSpeicher).length) sessionSchreiben({ ...sessionLesen(), ...imSpeicher });
+  } else {
+    sessionLoeschen();
   }
 }
 
@@ -48,6 +90,7 @@ function write(value: LeadContext) {
  */
 export function captureLeadContext() {
   if (typeof window === "undefined") return;
+  window.addEventListener(EINWILLIGUNG_EVENT, beiEinwilligung);
   const params = new URLSearchParams(window.location.search);
   const gefunden: LeadContext = {};
   UTM_KEYS.forEach((key) => {

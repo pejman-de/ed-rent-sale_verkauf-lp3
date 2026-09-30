@@ -47,7 +47,7 @@ const baseFormSchema = z.object({
   finanzierung: z.enum(["Ja", "Nein"]),
   aufbau: z.enum(["Ja", "Nein"]),
   datenschutz_akzeptiert: z.literal(true, {
-    message: "Bitte stimmen Sie der Datenschutzerklärung zu.",
+    message: "Bitte bestätigen Sie, dass Sie die Datenschutzerklärung zur Kenntnis genommen haben.",
   }),
   // Honeypot: fuer Menschen unsichtbares Feld, Bots fuellen es haeufig aus
   website: z.string().optional(),
@@ -658,7 +658,7 @@ export default function LeadForm({ prefilledVehicle }: LeadFormProps) {
             className="mt-0.5 shrink-0"
           />
           <label htmlFor="datenschutz" className="block text-sm font-normal text-brand-grey leading-relaxed cursor-pointer">
-            Ich habe die <Link href="/datenschutz" className="text-brand-cyan underline hover:text-brand-cyan/80">Datenschutzerklärung</Link> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. *
+            Ich habe die <Link href="/datenschutz" className="text-brand-cyan underline hover:text-brand-cyan/80">Datenschutzerklärung</Link> zur Kenntnis genommen. *
           </label>
         </div>
         {errors.datenschutz_akzeptiert && <p className="text-xs font-semibold text-destructive -mt-4">{errors.datenschutz_akzeptiert.message}</p>}

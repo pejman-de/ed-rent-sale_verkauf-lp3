@@ -40,6 +40,9 @@ export default function Datenschutz() {
             <p className="text-brand-grey text-lg leading-relaxed max-w-2xl">
               Informationen über die Erhebung, Verarbeitung und Nutzung Ihrer personenbezogenen Daten bei der Nutzung unserer Website.
             </p>
+            <p className="text-sm text-brand-grey mt-4">
+              Stand: 30. September 2026
+            </p>
           </div>
 
           {/* Privacy Content */}
@@ -77,7 +80,7 @@ export default function Datenschutz() {
                 2. Datenerfassung beim Besuch unserer Website
               </h2>
               <p>
-                2.1 Bei der bloß informatorischen Nutzung unserer Website, also wenn Sie sich nicht registrieren oder uns anderweitig Informationen übermitteln, erheben wir nur solche Daten, die Ihr Browser an den Seitenserver übermittelt (sog. „Server-Logfiles“). Wenn Sie unsere Website aufrufen, erheben wir die folgenden Daten, die für uns technisch erforderlich sind, um Ihnen die Website anzuzeigen:
+                2.1 Bei der bloß informatorischen Nutzung unserer Website, also wenn Sie uns nicht anderweitig Informationen übermitteln, werden nur solche Daten verarbeitet, die Ihr Browser an den Server übermittelt (sog. „Server-Logfiles“). Wenn Sie unsere Website aufrufen, werden die folgenden Daten verarbeitet, die technisch erforderlich sind, um Ihnen die Website anzuzeigen:
               </p>
               <ul className="list-disc list-inside space-y-1 pl-4 text-sm">
                 <li>Unsere besuchte Website</li>
@@ -86,13 +89,13 @@ export default function Datenschutz() {
                 <li>Quelle/Verweis, von welchem Sie auf die Seite gelangten</li>
                 <li>Verwendeter Browser</li>
                 <li>Verwendetes Betriebssystem</li>
-                <li>Verwendete IP-Adresse (ggf. in anonymisierter Form)</li>
+                <li>Verwendete IP-Adresse</li>
               </ul>
               <p>
-                Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website. Eine Weitergabe oder anderweitige Verwendung der Daten findet nicht statt. Wir behalten uns allerdings vor, die Server-Logfiles nachträglich zu überprüfen, sollten konkrete Anhaltspunkte auf eine rechtswidrige Nutzung hinweisen.
+                Die Server-Logfiles werden von unserem Hosting-Anbieter verarbeitet (siehe Abschnitt 3). Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Basis unseres berechtigten Interesses an einer sicheren, stabilen und funktionsfähigen Bereitstellung unserer Website. Eine darüber hinausgehende Weitergabe oder anderweitige Verwendung der Daten findet nicht statt.
               </p>
               <p>
-                2.2 Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung personenbezogener Daten und anderer vertraulicher Inhalte (z.B. Bestellungen oder Anfragen an den Verantwortlichen) eine SSL- bzw. TLS-Verschlüsselung. Sie können eine verschlüsselte Verbindung an der Zeichenfolge „https://“ und dem Schloss-Symbol in Ihrer Browserzeile erkennen.
+                2.2 Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung personenbezogener Daten und anderer vertraulicher Inhalte (z.B. Anfragen an den Verantwortlichen) eine SSL- bzw. TLS-Verschlüsselung. Sie können eine verschlüsselte Verbindung an der Zeichenfolge „https://“ und dem Schloss-Symbol in Ihrer Browserzeile erkennen.
               </p>
             </section>
 
@@ -100,29 +103,38 @@ export default function Datenschutz() {
             <section className="space-y-4">
               <h2 className="text-xl font-bold text-brand-navy flex items-center gap-2 border-b border-brand-grey/10 pb-2">
                 <Lock className="h-5 w-5 text-brand-cyan" />
-                3. Hosting & Content-Delivery-Network
+                3. Hosting
               </h2>
               <p>
-                Für das Hosting unserer Website und die Darstellung der Seiteninhalte nutzen wir einen Anbieter, der seine Leistungen selbst oder durch ausgewählte Sub-Unternehmer ausschließlich auf Servern innerhalb der Europäischen Union erbringt. Sämtliche auf unserer Website erhobenen Daten werden auf diesen Servern verarbeitet.
+                Unsere Website wird über den Dienst „GitHub Pages“ der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA, bereitgestellt. Den Dienst setzt unser technischer Dienstleister (siehe Abschnitt 8) in unserem Auftrag ein. Beim Aufruf der Website verarbeitet GitHub die unter 2.1 genannten Daten, insbesondere Ihre IP-Adresse, um die Seiten auszuliefern und einen sicheren Betrieb zu gewährleisten. Dabei können Daten auch auf Servern in den USA verarbeitet werden.
               </p>
               <p>
-                Wir haben mit dem Anbieter einen Auftragsverarbeitungsvertrag geschlossen, der den Schutz der Daten unserer Seitenbesucher sicherstellt und eine unberechtigte Weitergabe an Dritte untersagt.
+                Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer sicheren und zuverlässigen Bereitstellung unserer Website gemäß Art. 6 Abs. 1 lit. f DSGVO. Für Übermittlungen in die USA stützt sich GitHub nach eigenen Angaben auf das EU-US Data Privacy Framework sowie auf Standardvertragsklauseln der EU-Kommission.
+              </p>
+              <p>
+                Weitere Informationen:{" "}
+                  <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
+                    https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement
+                  </a>
               </p>
             </section>
 
             {/* Section 4 */}
             <section className="space-y-4">
               <h2 className="text-xl font-bold text-brand-navy border-b border-brand-grey/10 pb-2">
-                4. Cookies
+                4. Cookies und Speicherung auf Ihrem Endgerät
               </h2>
               <p>
-                Um den Besuch unserer Website attraktiv zu gestalten und die Nutzung bestimmter Funktionen zu ermöglichen, verwenden wir Cookies, also kleine Textdateien, die auf Ihrem Endgerät abgelegt werden. Teilweise werden diese Cookies nach Schließen des Browsers automatisch wieder gelöscht (sog. „Session-Cookies“), teilweise verbleiben diese Cookies länger auf Ihrem Endgerät und ermöglichen das Speichern von Seiteneinstellungen (sog. „persistente Cookies“).
+                Wir speichern Informationen auf Ihrem Endgerät oder greifen auf dort gespeicherte Informationen zu (z. B. Cookies, Local Storage, Session Storage) nur, soweit dies für die von Ihnen gewünschte Nutzung unbedingt erforderlich ist (§ 25 Abs. 2 Nr. 2 TDDDG) oder Sie eingewilligt haben (§ 25 Abs. 1 TDDDG in Verbindung mit Art. 6 Abs. 1 lit. a DSGVO). Im Einzelnen:
               </p>
+              <ul className="list-disc list-inside space-y-2 pl-4 text-sm">
+                <li><span className="font-semibold text-brand-navy">„ed_consent_v1“ (Local Storage, erforderlich)</span>: speichert Ihre Auswahl im Cookie-Banner und deren Zeitpunkt, bis Sie Ihre Auswahl ändern oder Ihre Browserdaten löschen.</li>
+                <li><span className="font-semibold text-brand-navy">„ed_lead_context“ (Session Storage, nur mit Einwilligung „Statistik“ oder „Marketing“)</span>: speichert während Ihres Besuchs die Kampagnenparameter aus der aufgerufenen Adresse (z. B. utm_source, utm_campaign), die Einstiegsseite und die verweisende Seite, damit diese Angaben auch nach einem Neuladen der Seite mit einer Anfrage übermittelt werden können. Ohne Einwilligung werden diese Angaben nicht auf Ihrem Gerät gespeichert, sondern nur für die Dauer des geöffneten Seitenaufrufs vorgehalten. Die Werte verlassen Ihr Gerät nur, wenn Sie das Anfrageformular absenden, und werden beim Schließen des Browser-Tabs gelöscht.</li>
+                <li><span className="font-semibold text-brand-navy">Nur mit Einwilligung „Statistik“</span>: Cookies von Google Analytics (_ga, _ga_[ID]), siehe Abschnitt 6a.</li>
+                <li><span className="font-semibold text-brand-navy">Nur mit Einwilligung „Marketing“</span>: Cookies des Meta Pixels (_fbp, _fbc), siehe Abschnitt 6b.</li>
+              </ul>
               <p>
-                Sofern durch einzelne von uns eingesetzte Cookies auch personenbezogene Daten verarbeitet werden, erfolgt die Verarbeitung gemäß Art. 6 Abs. 1 lit. b DSGVO entweder zur Durchführung des Vertrages, gemäß Art. 6 Abs. 1 lit. a DSGVO im Falle einer erteilten Einwilligung oder gemäß Art. 6 Abs. 1 lit. f DSGVO zur Wahrung unserer berechtigten Interessen an der bestmöglichen Funktionalität der Website sowie einer kundenfreundlichen und effektiven Ausgestaltung des Seitenbesuchs.
-              </p>
-              <p>
-                Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und einzeln über deren Annahme entscheiden oder die Annahme von Cookies für bestimmte Fälle oder generell ausschließen können. Bitte beachten Sie, dass bei Nichtannahme von Cookies die Funktionalität unserer Website eingeschränkt sein kann.
+                Die Rechtsgrundlage für die anschließende Verarbeitung personenbezogener Daten ergibt sich aus den jeweiligen Abschnitten dieser Erklärung. Sie können Ihre Einwilligung jederzeit über den Link „Cookie-Einstellungen“ im Footer der Website widerrufen. Zusätzlich können Sie Cookies und gespeicherte Websitedaten in Ihrem Browser löschen oder blockieren.
               </p>
             </section>
 
@@ -132,25 +144,34 @@ export default function Datenschutz() {
                 5. Kontaktaufnahme
               </h2>
               <p>
-                Im Rahmen der Kontaktaufnahme mit uns (z.B. per Kontaktformular oder E-Mail) werden personenbezogene Daten erhoben. Welche Daten im Falle der Nutzung eines Kontaktformulars erhoben werden, ist aus dem jeweiligen Kontaktformular ersichtlich. Diese Daten werden ausschließlich zum Zweck der Beantwortung Ihres Anliegens bzw. für die Kontaktaufnahme und die damit verbundene technische Administration gespeichert und verwendet.
+                Wenn Sie uns über eines unserer Anfrageformulare oder per E-Mail kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Daten. Beim Anfrageformular sind dies Name, E-Mail-Adresse, Telefonnummer, Unternehmen, Postleitzahl, Ihre Angaben zum Bedarf (z. B. Fahrzeugtyp, Aufbau, Zeitraum, Stückzahl, Liefer- oder Abholwunsch) sowie eine etwaige Nachricht. Ohne die als Pflichtangaben gekennzeichneten Daten können wir Ihre Anfrage nicht bearbeiten.
               </p>
               <p>
-                Rechtsgrundlage für die Verarbeitung dieser Daten ist unser berechtigtes Interesse an der Beantwortung Ihres Anliegens gemäß Art. 6 Abs. 1 lit. f DSGVO. Zielt Ihre Kontaktierung auf den Abschluss eines Vertrages ab, so ist zusätzliche Rechtsgrundlage für die Verarbeitung Art. 6 Abs. 1 lit. b DSGVO.
+                Zusammen mit Ihrer Anfrage werden der Zeitpunkt der Anfrage und die Kampagnenparameter (siehe Abschnitt 4) übermittelt. Haben Sie in die Kategorie „Statistik“ eingewilligt, wird zusätzlich Ihre Google-Analytics-Kennung übermittelt, haben Sie in die Kategorie „Marketing“ eingewilligt, zusätzlich die Meta-Kennungen fbp und fbc.
               </p>
               <p>
-                Ihre Daten werden nach abschließender Bearbeitung Ihrer Anfrage gelöscht. Dies ist der Fall, wenn sich aus den Umständen entnehmen lässt, dass der betroffene Sachverhalt abschließend geklärt ist und sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+                Nach dem Absenden erhalten Sie eine automatische Bestätigung per E-Mail. Anhand Ihrer Angaben zu Bedarf und Zeitrahmen wird Ihre Anfrage automatisch einer Prioritätsstufe zugeordnet, damit wir dringende Anfragen schneller bearbeiten können. Diese Einstufung bestimmt nur die interne Reihenfolge der Bearbeitung; eine automatisierte Entscheidung im Sinne von Art. 22 DSGVO findet nicht statt.
+              </p>
+              <p>
+                Rechtsgrundlage für die Verarbeitung dieser Daten ist unser berechtigtes Interesse an der Beantwortung und strukturierten Bearbeitung Ihres Anliegens gemäß Art. 6 Abs. 1 lit. f DSGVO. Zielt Ihre Anfrage auf den Abschluss eines Vertrages ab, ist zusätzliche Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO.
+              </p>
+              <p>
+                Ihre Daten werden nach abschließender Bearbeitung Ihrer Anfrage gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Kommt ein Vertrag zustande, speichern wir Ihre Daten für die Dauer der Vertragsbeziehung und der gesetzlichen Aufbewahrungsfristen.
               </p>
 
               <div className="space-y-4 pl-4 border-l-2 border-brand-cyan/30">
-                <h3 className="font-bold text-brand-navy">Weiterleitung über Cloudflare Workers</h3>
+                <h3 className="font-bold text-brand-navy">Technische Weiterleitung über Cloudflare Workers</h3>
                 <p>
-                  Die technische Übermittlung Ihrer über das Kontaktformular eingegebenen Daten an unser CRM-System (siehe unten) erfolgt über einen sogenannten „Cloudflare Worker", einen serverseitigen Dienst der Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA. Der Cloudflare Worker leitet Ihre Formulardaten ausschließlich technisch weiter und speichert diese nicht dauerhaft.
+                  Ihre Formulardaten werden über sogenannte Cloudflare Workers an unser CRM-System Brevo und, soweit Sie eingewilligt haben, an Meta weitergeleitet (siehe unten und Abschnitt 6b). Ein weiterer Worker übermittelt Rückmeldungen über abgeschlossene Aufträge aus unserem CRM-System an Meta (siehe Abschnitt 6b). Cloudflare Workers sind ein serverseitiger Dienst der Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA, den unser technischer Dienstleister (siehe Abschnitt 8) in unserem Auftrag einsetzt.
                 </p>
                 <p>
-                  Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer zuverlässigen und performanten technischen Anbindung unseres Kontaktformulars gemäß Art. 6 Abs. 1 lit. f DSGVO, in Fällen einer vertragsbezogenen Anfrage zusätzlich gemäß Art. 6 Abs. 1 lit. b DSGVO.
+                  Dabei verarbeitet Cloudflare Ihre Formulardaten sowie Ihre IP-Adresse und Browserkennung (User-Agent). Die Formulardaten werden nur weitergeleitet und nicht dauerhaft gespeichert. Technische Protokolle ohne Formularinhalte können zur Fehleranalyse für wenige Tage gespeichert werden.
                 </p>
                 <p>
-                  Cloudflare kann im Rahmen dieser Verarbeitung personenbezogene Daten auch auf Servern in den USA verarbeiten. Cloudflare hat sich nach eigenen Angaben dem EU-US Data Privacy Framework angeschlossen; ergänzend besteht mit Cloudflare ein Auftragsverarbeitungsvertrag auf Grundlage der Standardvertragsklauseln der EU-Kommission.
+                  Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer zuverlässigen und sicheren technischen Anbindung unserer Anfrageformulare gemäß Art. 6 Abs. 1 lit. f DSGVO, bei vertragsbezogenen Anfragen zusätzlich gemäß Art. 6 Abs. 1 lit. b DSGVO. Für die Weiterleitung an Meta gilt die in Abschnitt 6b beschriebene Einwilligung.
+                </p>
+                <p>
+                  Cloudflare kann Daten auch auf Servern in den USA verarbeiten. Cloudflare ist nach eigenen Angaben unter dem EU-US Data Privacy Framework zertifiziert; ergänzend besteht mit Cloudflare ein Auftragsverarbeitungsvertrag auf Grundlage der Standardvertragsklauseln der EU-Kommission.
                 </p>
                 <p>
                   Weitere Informationen:{" "}
@@ -163,13 +184,13 @@ export default function Datenschutz() {
               <div className="space-y-4 pl-4 border-l-2 border-brand-cyan/30">
                 <h3 className="font-bold text-brand-navy">Brevo (CRM-System zur Bearbeitung Ihrer Anfrage)</h3>
                 <p>
-                  Zur Verwaltung und Bearbeitung Ihrer über das Kontaktformular übermittelten Anfrage nutzen wir das CRM-System Brevo der Brevo SAS, 8 rue de Londres, 75009 Paris, Frankreich. Ihre im Formular angegebenen Daten (z.B. Name, E-Mail-Adresse, Telefonnummer, Inhalt Ihrer Anfrage) werden dort gespeichert, um Ihr Anliegen zu bearbeiten und Ihnen zu antworten.
+                  Zur Verwaltung und Bearbeitung Ihrer Anfrage nutzen wir das CRM-System Brevo der Brevo SAS, 8 rue de Londres, 75009 Paris, Frankreich. Ihre im Formular angegebenen Daten und die oben genannten technischen Angaben werden dort gespeichert, um Ihr Anliegen zu bearbeiten und Ihnen zu antworten. Über Brevo versenden wir auch die Bestätigung Ihrer Anfrage per E-Mail. Im CRM dokumentieren wir außerdem den Bearbeitungsstand Ihrer Anfrage, z. B. Angebotsstatus, Auftragswert und Abschluss.
                 </p>
                 <p>
-                  Innerhalb von Brevo können anhand der von Ihnen übermittelten Angaben automatisierte Vorgänge (z.B. Zuordnung zu einer zuständigen Ansprechperson oder automatisierte Erinnerungen zur Anfragebearbeitung) ausgelöst werden. Diese automatisierten Vorgänge dienen ausschließlich der Bearbeitung Ihrer konkreten Anfrage und nicht der allgemeinen Zusendung von Werbung oder Newslettern, sofern Sie einer solchen nicht gesondert zugestimmt haben.
+                  Innerhalb von Brevo können anhand Ihrer Angaben automatisierte Vorgänge (z. B. Zuordnung zu einer zuständigen Ansprechperson oder Erinnerungen zur Anfragebearbeitung) ausgelöst werden. Diese dienen ausschließlich der Bearbeitung Ihrer konkreten Anfrage und nicht der Zusendung von Werbung oder Newslettern, sofern Sie einer solchen nicht gesondert zugestimmt haben.
                 </p>
                 <p>
-                  Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer strukturierten und effizienten Bearbeitung eingehender Anfragen gemäß Art. 6 Abs. 1 lit. f DSGVO, in Fällen einer vertragsbezogenen Anfrage zusätzlich gemäß Art. 6 Abs. 1 lit. b DSGVO.
+                  Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer strukturierten und effizienten Bearbeitung eingehender Anfragen gemäß Art. 6 Abs. 1 lit. f DSGVO, bei vertragsbezogenen Anfragen zusätzlich gemäß Art. 6 Abs. 1 lit. b DSGVO.
                 </p>
                 <p>
                   Wir haben mit Brevo einen Auftragsverarbeitungsvertrag abgeschlossen.
@@ -185,182 +206,133 @@ export default function Datenschutz() {
 
             {/* Section 6 */}
             <section className="space-y-4">
-              <h2 className="text-xl font-bold text-brand-navy border-b border-brand-grey/10 pb-2">
-                6. Seitenfunktionalitäten
+              <h2 className="text-xl font-bold text-brand-navy flex items-center gap-2 border-b border-brand-grey/10 pb-2">
+                <Settings className="h-5 w-5 text-brand-cyan" />
+                6. Analyse und Marketing-Tools
               </h2>
-              <div className="space-y-4 pl-4 border-l-2 border-brand-cyan/30">
-                <h3 className="font-bold text-brand-navy">Google Maps</h3>
-                <p>
-                  Diese Webseite nutzt einen Online-Kartendienst des folgenden Anbieters: Google Maps (API) von Google Ireland Limited, Gordon House, 4 Barrow St, Dublin, D04 E5W5, Irland (“Google”).
-                </p>
-                <p>
-                  Google Maps ist ein Webdienst zur Darstellung von interaktiven (Land-)Karten, um geographische Informationen visuell darzustellen. Über die Nutzung dieses Dienstes wird Ihnen unser Standort angezeigt und eine etwaige Anfahrt erleichtert.
-                </p>
-                <p>
-                  Bereits beim Aufrufen derjenigen Unterseiten, in die die Karte von Google Maps eingebunden ist, werden Informationen über Ihre Nutzung unserer Website (wie z.B. Ihre IP-Adresse) an Server von Google übertragen und dort gespeichert, hierbei kann es auch zu einer Übermittlung an die Server der Google LLC. in den USA kommen. Dies erfolgt unabhängig davon, ob Google ein Nutzerkonto bereitstellt, über das Sie eingeloggt sind oder ob ein Nutzerkonto besteht. Wenn Sie bei Google eingeloggt sind, werden Ihre Daten direkt Ihrem Konto zugeordnet. Wenn Sie die Zuordnung mit Ihrem Profil bei Google nicht wünschen, müssen Sie sich vor Aktivierung des Buttons ausloggen. Google speichert Ihre Daten (selbst für nicht eingeloggte Nutzer) als Nutzungsprofile und wertet diese aus.
-                </p>
-                <p>
-                  Die Verarbeitung Ihrer Daten im Rahmen der Nutzung von Google Maps erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft über die Cookie-Einstellungen auf unserer Website widerrufen.
-                </p>
-                <p>
-                  Ihnen steht ein Widerspruchsrecht gegen die Bildung dieser Nutzerprofile zu, wobei Sie sich für dessen Ausübung an Google wenden müssen. Wenn Sie mit der künftigen Übermittlung Ihrer Daten an Google im Rahmen der Nutzung von Google Maps nicht einverstanden sind, besteht auch die Möglichkeit, den Webdienst von Google Maps vollständig zu deaktivieren, indem Sie die Anwendung JavaScript in Ihrem Browser ausschalten. Google Maps und damit auch die Kartenanzeige auf dieser Internetseite kann dann nicht genutzt werden.
-                </p>
-                <p>
-                  Soweit rechtlich erforderlich, haben wir zur vorstehend dargestellten Verarbeitung Ihrer Daten Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO eingeholt. Sie können Ihre erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Um Ihren Widerruf auszuüben, befolgen Sie bitte die vorstehend geschilderte Möglichkeit zur Vornahme eines Widerspruchs.
-                </p>
-                <p>
-                  Für Datenübermittlungen in die USA hat sich der Anbieter dem EU-US-Datenschutzrahmen (EU-US Data Privacy Framework) angeschlossen, das auf Basis eines Angemessenheitsbeschlusses der Europäischen Kommission die Einhaltung des europäischen Datenschutzniveaus sicherstellt.
-                </p>
-                <p>
-                  Weitere Hinweise zum Datenschutz von Google finden sich hier:{" "}
-                  <a href="https://business.safety.google/intl/de/privacy/" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
-                    https://business.safety.google/intl/de/privacy/
+
+              <div className="space-y-6 pl-4 border-l-2 border-brand-cyan/30">
+                {/* 6.0 */}
+                <div className="space-y-2">
+                  <h3 className="font-bold text-brand-navy">Google Tag Manager</h3>
+                  <p>
+                    Diese Website verwendet den Google Tag Manager der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Der Tag Manager dient der Verwaltung und Ausspielung der nachfolgend beschriebenen Dienste. Beim Laden des Tag Managers werden Ihre IP-Adresse sowie technische Informationen über Ihr Gerät und Ihren Browser an Google übertragen; dabei ist eine Übermittlung in die USA möglich. Der Tag Manager wird deshalb erst geladen, wenn Sie in die Kategorie „Statistik“ oder „Marketing“ eingewilligt haben.
+                  </p>
+                  <p>
+                    Rechtsgrundlage ist Ihre Einwilligung gemäß § 25 Abs. 1 TDDDG und Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen auf unserer Website widerrufen.
+                  </p>
+                  <p>
+                    Google hat sich dem EU-US Data Privacy Framework angeschlossen, das auf Grundlage eines Angemessenheitsbeschlusses der EU-Kommission ein angemessenes Datenschutzniveau für Datenübermittlungen in die USA sicherstellt. Weitere Informationen:{" "}
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
+                    https://policies.google.com/privacy
                   </a>
-                </p>
+                  </p>
+                </div>
+
+                {/* 6a */}
+                <div className="space-y-2">
+                  <h3 className="font-bold text-brand-navy">6a.) Google Analytics 4</h3>
+                  <p>
+                    Diese Website verwendet Google Analytics 4, einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics 4 wird nur mit Ihrer Einwilligung in die Kategorie „Statistik“ geladen.
+                  </p>
+                  <p>
+                    Google Analytics 4 ermöglicht uns die Analyse der Nutzung unserer Website. Dabei werden Informationen wie aufgerufene Seiten, Verweildauer, verwendetes Endgerät, ungefährer Standort (Stadtebene) sowie Interaktionen (z. B. Klicks, erreichte Schritte im Anfrageformular, Art und Prioritätsstufe einer Anfrage) erfasst. Kontaktdaten aus dem Anfrageformular übermitteln wir nicht an Google Analytics. Nach Angaben von Google speichert Google Analytics 4 keine IP-Adressen.
+                  </p>
+                  <p>
+                    Die Google-Analytics-Kennung (Client-ID) speichern wir zusammen mit Ihrer Anfrage in unserem CRM-System, um Anfragen der jeweiligen Kampagne zuordnen zu können (siehe Abschnitt 5).
+                  </p>
+                  <p>
+                    Die erhobenen Daten werden auf Servern von Google verarbeitet, auch in den USA. Google hat sich dem EU-US Data Privacy Framework angeschlossen. Die Aufbewahrung der Daten in Google Analytics ist auf 14 Monate begrenzt.
+                  </p>
+                  <p>
+                    Rechtsgrundlage ist Ihre Einwilligung gemäß § 25 Abs. 1 TDDDG und Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen widerrufen oder das Browser-Add-on von Google nutzen:{" "}
+                    <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
+                    https://tools.google.com/dlpage/gaoptout
+                  </a>
+                  </p>
+                  <p>
+                    Wir haben mit Google einen Auftragsverarbeitungsvertrag abgeschlossen.
+                  </p>
+                </div>
+
+                {/* 6b */}
+                <div className="space-y-2">
+                  <h3 className="font-bold text-brand-navy">6b.) Meta Pixel und Meta Conversions API</h3>
+                  <p>
+                    Diese Website verwendet den Meta Pixel sowie die Meta Conversions API, Dienste der Meta Platforms Ireland Ltd., Merrion Road, Dublin 4, D04 X2K5, Irland („Meta“). Beide Dienste werden nur mit Ihrer Einwilligung in die Kategorie „Marketing“ eingesetzt.
+                  </p>
+                  <p>
+                    <span className="font-semibold text-brand-navy">Meta Pixel:</span> Der Pixel erfasst Seitenaufrufe, Schritte im Anfrageformular und das Absenden einer Anfrage und setzt dazu die Cookies _fbp und gegebenenfalls _fbc. Diese Informationen werden an Meta übermittelt, um den Erfolg unserer Werbeanzeigen auf Facebook und Instagram zu messen, die Ausspielung von Anzeigen zu optimieren und Zielgruppen für Werbung zu bilden. Kontaktdaten aus dem Formular übermittelt der Pixel nicht.
+                  </p>
+                  <p>
+                    <span className="font-semibold text-brand-navy">Conversions API:</span> Beim Absenden einer Anfrage übermitteln wir zusätzlich serverseitig über die in Abschnitt 5 genannten Cloudflare Workers ein Ereignis „Lead“ an Meta. Übertragen werden E-Mail-Adresse, Telefonnummer, Vorname, Nachname, Postleitzahl und Land, jeweils vor der Übermittlung mit dem Verfahren SHA-256 gehasht, außerdem Ihre IP-Adresse, Ihre Browserkennung (User-Agent), die Meta-Kennungen fbp und fbc, die Adresse der aufgerufenen Seite sowie eine Ereignis-ID, mit der Meta doppelte Meldungen von Pixel und Server zusammenführt.
+                  </p>
+                  <p>
+                    <span className="font-semibold text-brand-navy">Rückmeldung aus dem CRM-System:</span> Kommt es aufgrund Ihrer Anfrage zu einem Auftrag, melden wir diesen ebenfalls über die Conversions API an Meta (Ereignis „Purchase“); auf dieselbe Weise können wir vergleichbare Fortschritte Ihrer Anfrage, etwa einen vereinbarten Termin, melden. Übertragen werden dabei der Auftragswert, eine interne Auftragsnummer, die Landingpage, über die Sie angefragt haben, sowie E-Mail-Adresse, Telefonnummer, Vorname, Nachname, Postleitzahl, Land und Ihre Kundennummer in unserem CRM-System, jeweils gehasht, und die Meta-Kennungen fbp und fbc. Diese Rückmeldung erfolgt nur, wenn Sie bei Ihrer Anfrage in die Kategorie „Marketing“ eingewilligt hatten.
+                  </p>
+                  <p>
+                    <span className="font-semibold text-brand-navy">Zum Hashing:</span> Beim Hashing wird aus Ihren Daten eine Zeichenfolge berechnet, aus der sich die ursprünglichen Daten nicht unmittelbar ablesen lassen. Meta kann diese Werte jedoch mit den Daten seiner Nutzer abgleichen und Ereignisse so einem Facebook- oder Instagram-Konto zuordnen. Es handelt sich daher um pseudonymisierte, nicht um anonymisierte Daten.
+                  </p>
+                  <p>
+                    Rechtsgrundlage ist Ihre Einwilligung gemäß § 25 Abs. 1 TDDDG und Art. 6 Abs. 1 lit. a DSGVO. Ohne Einwilligung in die Kategorie „Marketing“ findet weder eine Übermittlung durch den Pixel noch durch die Conversions API statt. Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft über die Cookie-Einstellungen widerrufen. Haben Sie bereits eine Anfrage gesendet, können Sie der späteren Rückmeldung aus dem CRM-System zusätzlich per E-Mail an info@ed-rent.de widersprechen.
+                  </p>
+                  <p>
+                    Für die Erhebung der Daten auf unserer Website bzw. im Rahmen der Conversions API und deren Übermittlung an Meta sind wir und Meta gemeinsam verantwortlich (Art. 26 DSGVO). Die Einzelheiten regelt die Vereinbarung über die gemeinsame Verantwortlichkeit von Meta, die mit den Nutzungsbedingungen für Meta Business Tools gilt. Danach ist Meta insbesondere für die Erfüllung der Betroffenenrechte hinsichtlich der bei Meta verarbeiteten Daten zuständig; Sie können Ihre Rechte aber auch uns gegenüber geltend machen. Für die weitere Verarbeitung der übermittelten Daten ist Meta allein verantwortlich. Die Vereinbarung finden Sie hier:{" "}
+                    <a href="https://www.facebook.com/legal/controller_addendum" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
+                    https://www.facebook.com/legal/controller_addendum
+                  </a>
+                  </p>
+                  <p>
+                    Die verarbeiteten Daten können an Server von Meta in den USA übermittelt werden. Meta hat sich dem EU-US Data Privacy Framework angeschlossen.
+                  </p>
+                  <p>
+                    Werbeeinstellungen bei Meta:{" "}
+                    <a href="https://www.facebook.com/adpreferences/" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
+                    https://www.facebook.com/adpreferences/
+                  </a>
+                    {" "}· Datenschutzrichtlinie von Meta:{" "}
+                    <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
+                    https://www.facebook.com/privacy/policy/
+                  </a>
+                  </p>
+                </div>
               </div>
             </section>
 
             {/* Section 7 */}
             <section className="space-y-4">
               <h2 className="text-xl font-bold text-brand-navy flex items-center gap-2 border-b border-brand-grey/10 pb-2">
-                <Settings className="h-5 w-5 text-brand-cyan" />
-                7. Analyse und Marketing-Tools
+                <BarChart2 className="h-5 w-5 text-brand-cyan" />
+                7. Einwilligungsverwaltung (Cookie-Banner)
               </h2>
-
-              <div className="space-y-6 pl-4 border-l-2 border-brand-cyan/30">
-                {/* 7.0 */}
-                <div className="space-y-2">
-                  <h3 className="font-bold text-brand-navy">Google Tag Manager</h3>
-                  <p>
-                    Diese Website verwendet Google Tag Manager, einen Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
-                  </p>
-                  <p>
-                    Google Tag Manager ist ein System zur Verwaltung von Website-Tags. Tags sind kleine Code-Bausteine, die das Messen von Websiteverkehr und Nutzerverhalten ermöglichen. Der Tag Manager selbst erhebt keine personenbezogenen Daten und setzt keine Cookies. Er ermöglicht lediglich die Verwaltung und Ausspielung anderer Tools (z. B. Google Analytics, Meta Pixel), die in dieser Datenschutzerklärung gesondert beschrieben werden.
-                  </p>
-                  <p>
-                    Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen auf unserer Website widerrufen.
-                  </p>
-                  <p>
-                    Wir haben mit Google einen Auftragsverarbeitungsvertrag abgeschlossen. Google hat sich dem EU-US Data Privacy Framework angeschlossen, das ein angemessenes Datenschutzniveau für Datenübermittlungen in die USA sicherstellt. Weitere Informationen:{" "}
-                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline">
-                      https://policies.google.com/privacy
-                    </a>
-                  </p>
-                </div>
-
-                {/* 7a */}
-                <div className="space-y-2">
-                  <h3 className="font-bold text-brand-navy">7a.) Google Analytics 4</h3>
-                  <p>
-                    Diese Website verwendet Google Analytics 4, einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
-                  </p>
-                  <p>
-                    Google Analytics 4 ermöglicht uns die Analyse des Nutzerverhaltens auf unserer Website. Dabei werden Informationen wie aufgerufene Seiten, Verweildauer, verwendetes Endgerät, ungefährer Standort (Stadtebene) sowie Interaktionen (z. B. Klicks auf Links oder das Absenden von Formularen) erfasst. IP-Adressen werden von Google Analytics 4 nicht gespeichert.
-                  </p>
-                  <p>
-                    Sofern Sie uns über ein Formular Ihre E-Mail-Adresse oder Telefonnummer mitteilen und in die Nutzung von Google Analytics 4 eingewilligt haben, können diese Daten in anonymisierter (gehashter) Form zur verbesserten Zuordnung von Conversions verwendet werden. Eine direkte Identifikation ist durch das Hashing nicht möglich.
-                  </p>
-                  <p>
-                    Die erhobenen Daten werden auf Servern von Google verarbeitet, auch in den USA. Google hat sich dem EU-US Data Privacy Framework angeschlossen.
-                  </p>
-                  <p>
-                    Die Verarbeitung erfolgt ausschließlich auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Die Datenaufbewahrung ist auf 14 Monate begrenzt.
-                  </p>
-                  <p>
-                    Sie können der Erfassung durch Google Analytics widersprechen, indem Sie Ihre Einwilligung über die Cookie Einstellungen widerrufen oder das Browser-Add-on nutzen:{" "}
-                    <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline">
-                      https://tools.google.com/dlpage/gaoptout
-                    </a>
-                  </p>
-                </div>
-
-                {/* 7b */}
-                <div className="space-y-2">
-                  <h3 className="font-bold text-brand-navy">7b.) Meta Pixel und Meta Conversions API</h3>
-                  <p>
-                    Diese Website verwendet den Meta Pixel sowie die Meta Conversions API, Dienste der Meta Platforms Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland.
-                  </p>
-                  <p>
-                    Der Meta Pixel ist ein JavaScript-Code, der Informationen über das Nutzerverhalten auf unserer Website erfasst (z. B. aufgerufene Seiten, Klicks, abgesendete Formulare). Diese Informationen werden an Meta übermittelt, um den Erfolg unserer Werbeanzeigen bei Facebook und Instagram zu messen und Remarketing-Zielgruppen zu erstellen.
-                  </p>
-                  <p>
-                    Ergänzend zum Meta Pixel verwenden wir die Meta Conversions API. Diese ermöglicht die serverseitige Übermittlung von Conversion-Ereignissen direkt von unserem Server an Meta, ohne Abhängigkeit vom Browser des Nutzers. Beide Kanäle werden zur Messung derselben Ereignisse eingesetzt, um die Genauigkeit der Conversion-Messung zu verbessern.
-                  </p>
-                  <p>
-                    Sofern Sie uns über ein Formular personenbezogene Daten (E-Mail-Adresse, Telefonnummer) mitteilen und in die Nutzung von Meta Pixel eingewilligt haben, können diese Daten in anonymisierter (gehashter) Form an Meta übermittelt werden (sog. Advanced Matching). Eine Identifikation anhand der gehashten Daten ist nicht möglich.
-                  </p>
-                  <p>
-                    Die verarbeiteten Daten können an Server von Meta in den USA übermittelt werden. Meta hat sich dem EU-US Data Privacy Framework angeschlossen.
-                  </p>
-                  <p>
-                    Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen widerrufen. Opt-out über Meta-Werbeeinstellungen:{" "}
-                    <a href="https://www.facebook.com/adpreferences/" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline">
-                      https://www.facebook.com/adpreferences/
-                    </a>
-                  </p>
-                  <p>
-                    Wir haben mit Meta einen Auftragsverarbeitungsvertrag abgeschlossen. Weitere Informationen:{" "}
-                    <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline">
-                      https://www.facebook.com/privacy/policy/
-                    </a>
-                  </p>
-                </div>
-
-                {/* 7c */}
-                <div className="space-y-2">
-                  <h3 className="font-bold text-brand-navy">7c.) Google Ads Conversions-Tracking und Remarketing</h3>
-                  <p>
-                    Diese Website verwendet Google Ads Conversion-Tracking und Remarketing, Dienste der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
-                  </p>
-                  <p>
-                    Google Ads Conversion-Tracking erfasst, welche Aktionen auf unserer Website nach einem Klick auf eine Google Werbeanzeige durchgeführt wurden (z. B. das Absenden einer Miet- oder Verkaufsanfrage). So können wir messen, welche Anzeigen zu tatsächlichen Anfragen geführt haben.
-                  </p>
-                  <p>
-                    Das Remarketing ermöglicht es, Nutzern, die unsere Website besucht haben, bei späteren Google-Suchen oder auf anderen Websites zielgerichtete Werbeanzeigen anzuzeigen.
-                  </p>
-                  <p>
-                    Sofern Sie uns über ein Formular Ihre E-Mail-Adresse mitteilen und in die Nutzung von Google Ads eingewilligt haben, kann diese in gehashter Form zur Verbesserung der Conversion-Messung verwendet werden (sog. Enhanced Conversions). Eine direkte Identifikation ist durch das Hashing nicht möglich.
-                  </p>
-                  <p>
-                    Die verarbeiteten Daten können an Server von Google in den USA übermittelt werden. Google hat sich dem EU-US Data Privacy Framework angeschlossen.
-                  </p>
-                  <p>
-                    Die Verarbeitung erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen widerrufen. Opt-out:{" "}
-                    <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline">
-                      https://adssettings.google.com
-                    </a>
-                  </p>
-                  <p>
-                    Wir haben mit Google einen Auftragsverarbeitungsvertrag abgeschlossen. Weitere Informationen:{" "}
-                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline">
-                      https://policies.google.com/privacy
-                    </a>
-                  </p>
-                </div>
+              <div className="space-y-4 pl-4 border-l-2 border-brand-cyan/30">
+                <h3 className="font-bold text-brand-navy">Cookie-Consent-Tool (eigene Umsetzung)</h3>
+                <p>
+                  Die Einholung und Verwaltung Ihrer Einwilligung erfolgt über eine selbst entwickelte, in die Website integrierte Consent-Verwaltung. Es handelt sich nicht um ein Plugin oder einen Dienst eines externen Anbieters; Ihre Einwilligungsentscheidung wird nicht an Dritte übermittelt.
+                </p>
+                <p>
+                  Ihre Auswahl wird ausschließlich lokal in Ihrem Browser gespeichert (siehe Abschnitt 4). Sie können zwischen den Kategorien „Notwendig“, „Statistik“ und „Marketing“ wählen. Erst nach Ihrer Einwilligung in „Statistik“ oder „Marketing“ wird der Google Tag Manager nachgeladen; die darüber eingebundenen Dienste werden entsprechend Ihrer Auswahl freigeschaltet oder blockiert.
+                </p>
+                <p>
+                  Das Speichern Ihrer Auswahl ist unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG). Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtung zur Einholung und Beachtung von Einwilligungen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem rechtskonformen Consent-Management).
+                </p>
+                <p>
+                  Sie können Ihre Einwilligung jederzeit über den Link „Cookie-Einstellungen“ im Footer der Website widerrufen oder anpassen.
+                </p>
               </div>
             </section>
 
             {/* Section 8 */}
             <section className="space-y-4">
-              <h2 className="text-xl font-bold text-brand-navy flex items-center gap-2 border-b border-brand-grey/10 pb-2">
-                <BarChart2 className="h-5 w-5 text-brand-cyan" />
-                8. Tools und Sonstiges
+              <h2 className="text-xl font-bold text-brand-navy border-b border-brand-grey/10 pb-2">
+                8. Empfänger und Dienstleister
               </h2>
-              <div className="space-y-4 pl-4 border-l-2 border-brand-cyan/30">
-                <h3 className="font-bold text-brand-navy">Cookie-Consent-Tool (eigene Umsetzung)</h3>
-                <p>
-                  Die Einholung, Verwaltung und Dokumentation Ihrer Cookie-Einwilligung erfolgt über eine selbst entwickelte, in die Website integrierte Consent-Verwaltung. Es handelt sich nicht um ein Plugin oder einen Dienst eines externen Anbieters; es findet keine Übermittlung Ihrer Einwilligungsentscheidung an Dritte statt.
-                </p>
-                <p>
-                  Ihre Auswahl wird ausschließlich lokal in Ihrem Browser gespeichert (Local Storage) und nicht an unsere Server oder an Dritte übertragen. Erst nach Erteilung Ihrer Einwilligung wird der Google Tag Manager nachgeladen; die darüber eingebundenen Dienste (siehe unten) werden entsprechend Ihrer Auswahl nach Kategorien (Funktional, Statistik, Marketing) freigeschaltet oder blockiert.
-                </p>
-                <p>
-                  Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtung zur Einholung von Einwilligungen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem rechtskonformen Consent-Management).
-                </p>
-                <p>
-                  Sie können Ihre Cookie-Einwilligung jederzeit über den Link „Cookie-Einstellungen“ im Footer der Website widerrufen oder anpassen.
-                </p>
-              </div>
+              <p>
+                Wir geben Ihre Daten nur weiter, soweit dies in dieser Erklärung beschrieben ist. Für Marketing, Tracking, die Pflege unserer Landingpages und Anfrageformulare sowie den Betrieb der technischen Weiterleitung setzen wir einen externen Dienstleister als Auftragsverarbeiter nach Art. 28 DSGVO ein. Dieser verarbeitet Daten ausschließlich nach unserer Weisung und setzt seinerseits die in den Abschnitten 3 und 5 genannten Anbieter GitHub und Cloudflare als Unterauftragsverarbeiter ein.
+              </p>
+              <p>
+                Weitere Empfänger sind die in dieser Erklärung genannten Anbieter Brevo, Google und Meta im jeweils beschriebenen Umfang.
+              </p>
             </section>
 
             {/* Section 9 */}
@@ -382,6 +354,9 @@ export default function Datenschutz() {
                 <li><span className="font-semibold text-brand-navy">Recht auf Widerruf erteilter Einwilligungen gemäß Art. 7 Abs. 3 DSGVO</span>: Sie können Ihre erteilte Einwilligung jederzeit widerrufen.</li>
                 <li><span className="font-semibold text-brand-navy">Recht auf Beschwerde gemäß Art. 77 DSGVO</span>: Sie haben das Recht auf Beschwerde bei einer zuständigen Aufsichtsbehörde.</li>
               </ul>
+              <p className="text-sm">
+                Zuständige Aufsichtsbehörde für uns ist die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW), Kavalleriestraße 2–4, 40213 Düsseldorf.
+              </p>
 
               <div className="bg-brand-navy/5 rounded-xl p-6 border border-brand-grey/15 space-y-3 mt-6">
                 <h3 className="font-bold text-brand-navy flex items-center gap-2">
