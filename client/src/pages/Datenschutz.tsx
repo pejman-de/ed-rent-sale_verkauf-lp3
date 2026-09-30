@@ -106,15 +106,15 @@ export default function Datenschutz() {
                 3. Hosting
               </h2>
               <p>
-                Unsere Website wird über den Dienst „GitHub Pages“ der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA, bereitgestellt. Den Dienst setzt unser technischer Dienstleister (siehe Abschnitt 8) in unserem Auftrag ein. Beim Aufruf der Website verarbeitet GitHub die unter 2.1 genannten Daten, insbesondere Ihre IP-Adresse, um die Seiten auszuliefern und einen sicheren Betrieb zu gewährleisten. Dabei können Daten auch auf Servern in den USA verarbeitet werden.
+                Unsere Website wird über den Dienst „Cloudflare Pages“ der Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA, bereitgestellt. Den Dienst setzt unser technischer Dienstleister (siehe Abschnitt 8) in unserem Auftrag ein. Beim Aufruf der Website verarbeitet Cloudflare die unter 2.1 genannten Daten, insbesondere Ihre IP-Adresse, um die Seiten auszuliefern und die Website vor Angriffen zu schützen. Schlägt der Verbindungsaufbau fehl, kann Ihr Browser eine technische Fehlermeldung an Cloudflare senden. Dabei können Daten auch auf Servern in den USA verarbeitet werden.
               </p>
               <p>
-                Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer sicheren und zuverlässigen Bereitstellung unserer Website gemäß Art. 6 Abs. 1 lit. f DSGVO. Für Übermittlungen in die USA stützt sich GitHub nach eigenen Angaben auf das EU-US Data Privacy Framework sowie auf Standardvertragsklauseln der EU-Kommission.
+                Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer sicheren und zuverlässigen Bereitstellung unserer Website gemäß Art. 6 Abs. 1 lit. f DSGVO. Cloudflare ist nach eigenen Angaben unter dem EU-US Data Privacy Framework zertifiziert; ergänzend besteht mit Cloudflare ein Auftragsverarbeitungsvertrag auf Grundlage der Standardvertragsklauseln der EU-Kommission.
               </p>
               <p>
                 Weitere Informationen:{" "}
-                  <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
-                    https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement
+                  <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" className="text-brand-cyan hover:underline break-all">
+                    https://www.cloudflare.com/privacypolicy/
                   </a>
               </p>
             </section>
@@ -328,7 +328,7 @@ export default function Datenschutz() {
                 8. Empfänger und Dienstleister
               </h2>
               <p>
-                Wir geben Ihre Daten nur weiter, soweit dies in dieser Erklärung beschrieben ist. Für Marketing, Tracking, die Pflege unserer Landingpages und Anfrageformulare sowie den Betrieb der technischen Weiterleitung setzen wir einen externen Dienstleister als Auftragsverarbeiter nach Art. 28 DSGVO ein. Dieser verarbeitet Daten ausschließlich nach unserer Weisung und setzt seinerseits die in den Abschnitten 3 und 5 genannten Anbieter GitHub und Cloudflare als Unterauftragsverarbeiter ein.
+                Wir geben Ihre Daten nur weiter, soweit dies in dieser Erklärung beschrieben ist. Für Marketing, Tracking, die Pflege unserer Landingpages und Anfrageformulare sowie den Betrieb der technischen Weiterleitung setzen wir einen externen Dienstleister als Auftragsverarbeiter nach Art. 28 DSGVO ein. Dieser verarbeitet Daten ausschließlich nach unserer Weisung und setzt seinerseits den in den Abschnitten 3 und 5 genannten Anbieter Cloudflare als Unterauftragsverarbeiter ein.
               </p>
               <p>
                 Weitere Empfänger sind die in dieser Erklärung genannten Anbieter Brevo, Google und Meta im jeweils beschriebenen Umfang.
