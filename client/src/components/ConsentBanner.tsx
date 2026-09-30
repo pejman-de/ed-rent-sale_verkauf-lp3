@@ -88,7 +88,7 @@ export function ConsentBanner() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="ed-consent-titel"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white p-4 shadow-lg sm:p-6"
+      className="fixed inset-x-0 bottom-0 z-[60] max-h-[100dvh] overflow-y-auto border-t border-slate-200 bg-white p-4 shadow-lg sm:p-6"
     >
       <div className="mx-auto max-w-3xl">
         <h2
@@ -98,9 +98,13 @@ export function ConsentBanner() {
           Ihre Auswahl zu Cookies und Tracking
         </h2>
         <p className="mt-2 text-sm text-slate-600">
-          Wir setzen Cookies und ähnliche Techniken ein. Notwendige Funktionen
-          sind immer aktiv. Alles Weitere nur mit Ihrer Einwilligung. Sie
-          können Ihre Entscheidung jederzeit ändern. Einzelheiten stehen in
+          Notwendige Funktionen sind immer aktiv. Mit Ihrer Einwilligung
+          nutzen wir zusätzlich Google Analytics zur Reichweitenmessung
+          (Statistik) sowie den Meta Pixel und die Meta Conversions API, um
+          unsere Werbung auf Facebook und Instagram zu messen und zu
+          optimieren (Marketing). Dabei können Daten auch in die USA
+          übermittelt werden. Sie können Ihre Entscheidung jederzeit über
+          „Cookie-Einstellungen“ im Footer ändern. Einzelheiten stehen in
           der{" "}
           <a
             href="/datenschutz"
@@ -108,7 +112,13 @@ export function ConsentBanner() {
           >
             Datenschutzerklärung
           </a>
-          .
+          {" "}·{" "}
+          <a
+            href="/impressum"
+            className="underline underline-offset-2 hover:text-slate-900"
+          >
+            Impressum
+          </a>
         </p>
 
         {zeigeDetails && (
@@ -121,13 +131,13 @@ export function ConsentBanner() {
             />
             <Zeile
               titel="Statistik"
-              text="Lädt den Google Tag Manager und ermöglicht die Reichweitenmessung mit Google Analytics."
+              text="Lädt den Google Tag Manager und ermöglicht die Reichweitenmessung mit Google Analytics (Google Ireland Limited). Dabei können Daten in die USA übermittelt werden."
               aktiv={auswahl.statistik}
               beiKlick={() => umschalten("statistik")}
             />
             <Zeile
               titel="Marketing"
-              text="Lädt den Google Tag Manager und ermöglicht Kampagnenmessung und Zielgruppen bei Meta (Facebook/Instagram) und Google."
+              text="Lädt den Google Tag Manager und den Meta Pixel, um den Erfolg unserer Werbung auf Facebook und Instagram zu messen, Anzeigen zu optimieren und Zielgruppen zu bilden (Meta Platforms Ireland Ltd.). Senden Sie eine Anfrage, übermitteln wir Ihre Kontaktdaten zusätzlich gehasht serverseitig an Meta (Conversions API), ebenso eine spätere Rückmeldung, falls ein Auftrag zustande kommt. Dabei können Daten in die USA übermittelt werden."
               aktiv={auswahl.marketing}
               beiKlick={() => umschalten("marketing")}
             />
